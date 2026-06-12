@@ -282,6 +282,7 @@ module.exports = function(grunt) {
           cacheDir: './node_modules/nw',
           outDir: './dest/desktop/',
           managedManifest: './package.nw.json',
+          manifestUrl: 'https://nwjs.io/versions.json',
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
