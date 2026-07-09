@@ -2,13 +2,14 @@
 
 (typeof exports != "undefined" ? exports : pskl_exports).styles = [
   "css/variables.css",
-  "css/reset.css",
-  "css/style.css",
+  "css/body, webkit, range.css",
+  "css/checkbox, tooltip.css",
   "css/animations.css",
-  "css/layout.css",
+  "css/app layout, canvas backgrounds.css",
   "css/font-icon.css",
   "css/forms.css",
   "css/settings.css",
+  "css/settings-changelog.css",
   "css/settings-application.css",
   "css/settings-export.css",
   "css/settings-import.css",
@@ -26,7 +27,7 @@
   "css/dialogs-performance-info.css",
   "css/dialogs-unsupported-browser.css",
   "css/notifications.css",
-  "css/toolbox.css",
+  "css/(layer, transform, pallete) column.css",
   "css/toolbox-layers-list.css",
   "css/toolbox-palettes-list.css",
   "css/toolbox-animated-preview.css",
@@ -35,11 +36,12 @@
   "css/spectrum/spectrum-overrides.css",
   "css/bootstrap/bootstrap.css",
   "css/bootstrap/bootstrap-tooltip-custom.css",
-  "css/frames-list.css",
+  "css/frames, frame preview.css",
   "css/minimap.css",
   "css/widgets-anchor.css",
   "css/widgets-frame-picker.css",
   "css/widgets-size-picker.css",
   "css/widgets-tabs.css",
-  "css/widgets-wizard.css"
+  "css/widgets-wizard.css",
+  "css/devtools-override.css"
 ];

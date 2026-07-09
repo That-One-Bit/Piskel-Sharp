@@ -1,14 +1,15 @@
 {
-  "name": "piskel-playdate",
-  "version": "0.16.1",
+  "name": "piskel-sharp",
+  "version": "0.2.0",
   "private": true,
-  "description": "Pixel art editor",
-  "author": "Matt Sephton",
-  "homepage": "https://github.com/gingerbeardman/piskel-playdate",
+  "chromium-args": "--user-data-dir=\"C:\\PiskelSharpUserData\"",
+  "description": "A fork of the popular pixel art editor, Piskel, that adds new features and localization.",
+  "author": "Matt Sephton, That-One-Bit",
+  "homepage": "https://github.com/that-one-bit/piskel-sharp",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:gingerbeardman/piskel-playdate.git"
+    "url": "git@github.com:that-one-bit/piskel-sharp.git"
   },
   "files": [
     "dest/prod",
@@ -78,7 +79,9 @@
     "left": 0
   },
   "dependencies": {
-    "minimist": "1.2.8"
+    "casperjs": "^1.1.4",
+    "minimist": "1.2.8",
+    "messageformat": "^2.3.0"
   },
   "volta": {
     "node": "22.2.0"

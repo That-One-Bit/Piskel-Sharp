@@ -6,11 +6,11 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing.selection');
 
-  ns.LassoSelect = function() {
-    ns.AbstractDragSelect.call(this);
+  ns.LassoSelect = function(i18n) {
+    ns.AbstractDragSelect.call(this, i18n);
 
     this.toolId = 'tool-lasso-select';
-    this.helpText = 'Lasso selection';
+    this.helpText = i18n.lassoSelectDrawingSelectionTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.LASSO_SELECT;
   };
 

@@ -1,0 +1,13 @@
+Added new scrolling pullr
+Added filled shapes with control
+Added Changelog
+Revamped the testing menu/suite
+
+Will add layer locking
+Will add credits dialog
+Will add both changelog dialogs
+Will add future plans dialogs
+Will add i18n support
+
+Might add extended .piskel save control
+Might add a way to open testing suite within compiled app

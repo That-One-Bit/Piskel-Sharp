@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Piskel</title>
-  <meta name="description" content="">
-  <meta name="author" content="Julian Descottes">
+  <title>Piskel Sharp: Beta</title>
+  <meta name="description" content="A simple web-based pixel art editor based on Piskel, made for beginner and expierenced users alike.">
+  <meta name="author" content="Julian Descottes, That-One-Bit">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -14,15 +15,19 @@
     style="
     position:fixed;
     top:0;right:0;bottom:0;left:0;
-    background:black;
+    background-image: url(./img/loading_bg.png);
+    background-position: center;
+    background-size: cover;
+    image-rendering: pixelated;
     opacity:1;
     text-align:center;
     z-index : 20000;
-    transition:opacity 0.5s;
+    transition:opacity 2.5s;
     color:white;">
-      <span style="top:45%">Loading Piskel ...</span>
+      <span style="top:25% ; position:relative ; font-size: medium">Loading Piskel Sharp ...</span>
   </div>
   @@include('templates/debug-header.html', {})
+  <div class="fill-bar"></div>
 
   <!-- the comment below indicates the beginning of markup reused by the editor integrated in piskelapp.com -->
   <!-- do not delete, do not move :) -->
@@ -85,6 +90,7 @@
   @@include('templates/dialogs/unsupported-browser.html', {})
 
   <!-- settings-panel partials -->
+  @@include('templates/settings/changelog.html', {})
   @@include('templates/settings/preferences.html', {})
   @@include('templates/settings/preferences/grid.html', {})
   @@include('templates/settings/preferences/misc.html', {})

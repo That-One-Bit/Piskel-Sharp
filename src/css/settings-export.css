@@ -1,5 +1,4 @@
-/*******************************/
-/* Gif/Png Export Setting panel*/
+Gif/Png Export Setting panel*/
 /*******************************/
 .gif-download-button,
 .gif-render-button {
@@ -80,6 +79,7 @@
 
 .export-scale {
   margin-bottom: 10px;
+  margin-left: 1px;
 }
 
 .export-scale .scale-input {
@@ -93,7 +93,7 @@
   display: inline-block;
   line-height: 30px;
   width: 40px;
-  border: 1px solid grey;
+  border: 1px solid #f40000;
   box-sizing: border-box;
   border-radius: 3px;
   text-align: center;
@@ -134,7 +134,7 @@
 .export-panel-section {
   padding: 5px;
   margin-top: 10px;
-  border: 1px solid #5d5d5d;
+  border: 1px solid #151200;
   border-radius: 2px;
 }
 

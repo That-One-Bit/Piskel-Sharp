@@ -1,0 +1,205 @@
+/**
+ * Application layout
+ */
+
+.main-wrapper {
+  position: fixed;
+  top: 5px;
+  right: 0;
+  bottom: 5px;
+  left: 0;
+  background: linear-gradient(243deg, #100b04, #0c0a07);
+}
+
+.column-wrapper {
+  text-align: center;
+  font-size: 0;
+  display: flex;
+  margin-top: 9px;
+
+  position: absolute;
+  left: 100px; /* Reserve room for tools on the left edge of the screen. */
+  top: 0;
+  right: 50px; /* Reserve room for actions on the right edge of the screen. */
+  bottom: 0;
+}
+
+.left-column {
+  vertical-align: top;
+  height: 100%;
+  padding-right: 7px;
+  flex-shrink: 0;
+}
+
+.main-column {
+  height: 100%;
+  position: relative;
+}
+
+.right-column {
+  box-sizing: border-box;
+  vertical-align: top;
+  height: 100%;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  /* Keep in sync with Constants.RIGHT_COLUMN_PADDING_LEFT */
+  padding-left: 10px;
+  /* Add some padding for the absolutely positioned .cursor-coordinates */
+  padding-bottom: 20px;
+}
+
+.drawing-canvas-container {
+  font-size: 0;
+}
+
+.sticky-section {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.sticky-section .sticky-section-wrap {
+  display: table;
+  height: 100%;
+}
+
+.sticky-section .vertical-centerer {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.left-sticky-section.sticky-section {
+  left: 0;
+  max-width: 100px;
+}
+
+.left-sticky-section .tool-icon {
+  float: left;
+}
+
+.cursor-coordinates {
+  color: #b49700;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.cursor-coordinates .drawing-zoom {
+  position: absolute;
+  top: -20px;
+  left: 1px;
+}
+
+.cursor-coordinates .frame-info {
+  line-height: 1.5;
+  text-align: left;
+}
+
+/**
+ * Canvases layout
+ */
+
+.canvas {
+  position: relative;
+  z-index: 1;
+}
+
+.canvas-container {
+  position: relative;
+  display: block;
+  width: 99%;
+}
+
+.canvas-container .canvas-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.high-light-picker-background,
+.high-light-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFFJREFUWEft1LEJAEAIQ1Fd0h11SW+DWFyR5tuKEB6Y3N0NMTOj1lFVcn/dJwEQQMAu0N2yB37//LpPAiCAgF3AXkQEQAABu4C9iAiAAAJugQfm2v+B5sXaHAAAAABJRU5ErkJgggAA') repeat;
+}
+
+.low-light-picker-background,
+.low-light-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAALEAAACxABrSO9dQAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAWklEQVRIS+3NoQ0AMAwDwe6/ZEdJycvkVRjmIwGvyGc+7gdZyNKBIEsHgiz7A1zhT8hClg4EWToQZNkf4Ap/QhaydCDI0oEgy/4AV/gTspClA0GWDgRZlgdmHkchNKbvgjVKAAAAAElFTkSuQmCC') repeat;
+}
+
+.high-medium-light-picker-background,
+.high-medium-light-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFVJREFUWEft1LENADAIA8GwIOuwFzswV7KBKVK4eVqEZJ2Eo6ruEZOZan26W+63+yAAAgjYBWZG9sDvn2/3QQAEELAL2IuIAAggYBewFxEBEEDALfAAGrXrQWwA6CgAAAAASUVORK5CYIIA') repeat;
+}
+
+.low-medium-light-picker-background,
+.low-medium-light-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFVJREFUWEft1LENADAIA8EwDVuzDUMwTbKBKVK4eVqEZJ2Eo6ruEZOZan1mRu63+yAAAgjYBbpb9sDvn2/3QQAEELAL2IuIAAggYBewFxEBEEDALfAAHi/ykUz6P70AAAAASUVORK5CYIIA') repeat;
+}
+
+.very-low-medium-light-picker-background,
+.very-low-medium-light-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFZJREFUWEft1EENADAIQ9EhAv8WMIEaRGwOymGHXj5XQtK8hEZV3SMmM9X6zIzcb/dBAAQQsAt0t+yB3z/f7oMACCBgF7AXEQEQQMAuYC8iAiCAgFvgAVra9fHtg6nRAAAAAElFTkSuQmCC') repeat;
+}
+
+.high-medium-dark-picker-background,
+.high-medium-dark-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFVJREFUWEft1LENADAIA8GwBysxCHuzR7KBKVK4eVqEZJ2Eo6ruEZOZan1mRu63+yAAAgjYBbpb9sDvn2/3QQAEELAL2IuIAAggYBewFxEBEEDALfAAc4nSId6+MpwAAAAASUVORK5CYIIA') repeat;
+}
+
+.low-medium-dark-picker-background,
+.low-medium-dark-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFVJREFUWEft1LENADAIA8EwAfuxAeMzQbKBKVK4eVqEZJ2Eo6ruEZOZan1mRu63+yAAAgjYBbpb9sDvn2/3QQAEELAL2IuIAAggYBewFxEBEEDALfAAygLUkaP+uWIAAAAASUVORK5CYIIA') repeat;
+}
+
+.very-low-medium-dark-picker-background,
+.very-low-medium-dark-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFNJREFUWEft1CEOADAIQ9GhuCeO+yvUdoMiJmo+lpA0L6FRVfeIyUy1PjMj99t9EAABBOwC3S174PfPt/sgAAII2AXsRUQABBCwC9iLiAAIIOAWeDpY1hFEd8NrAAAAAElFTkSuQmCC') repeat;
+}
+
+.high-dark-picker-background,
+.high-dark-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFRJREFUWEft1KENAEAIQ9HD4tDsPx8j3G1QxImajyUkzUtoZOY9YqpKrc/MyP12HwRAAAG7QHfLHvj98+0+CIAAAnYBexERAAEE7AL2IiIAAgi4BR5nl7bxN0ZmewAAAABJRU5ErkJgggAA') repeat;
+}
+
+.low-dark-picker-background,
+.low-dark-canvas-background .canvas-background {
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAFRJREFUWEft1KENAEAIQ9HDsAGK/ZfE3G1QxImajyUkzUtoVNU9YjJTrc/MyP12HwRAAAG7QHfLHvj98+0+CIAAAnYBexERAAEE7AL2IiIAAgi4BR5iArkBq12/aQAAAABJRU5ErkJgggAA') repeat;
+}
+
+.canvas.onion-skin-canvas {
+  opacity: 0.2;
+}
+
+.canvas.canvas-overlay,
+.canvas.layers-canvas,
+.canvas.onion-skin-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tools-wrapper,
+.options-wrapper,
+.palette-wrapper {
+  float : left;
+}
+
+/**
+ * Z-indexes should match the drawing area canvas superposition order :
+ * - 1 : draw layers below current layer
+ * - 2 : draw current layer
+ * - 3 : draw layers above current layer
+ * - 4 : draw the tools overlay
+ */
+.canvas.layers-below-canvas  {z-index:  7;}
+.canvas.drawing-canvas       {z-index:  8;}
+.canvas.canvas-overlay       {z-index:  9;}
+.canvas.onion-skin-canvas    {z-index:  10;}
+.canvas.layers-above-canvas  {z-index:  11;}

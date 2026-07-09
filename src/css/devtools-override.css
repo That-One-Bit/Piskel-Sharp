@@ -1,0 +1,28 @@
+.dev-button {
+    background: rgb(75 55 31);
+    color: ghostwhite;
+}
+
+.dev-button:disabled {
+    background: rgb(48 35 20);
+}
+
+.dev-container {
+    position: relative;
+    z-index: 10000;
+    margin: 5px;
+    padding: 10px;
+    background: rgb(25 18 9);
+    color: ghostwhite;
+    text-align: center;
+    font-size: 15px;
+    font-family: monospace;
+    letter-spacing: -0.5px;
+    border-color: var(--sharp-light-gold);
+    border-radius:2px;
+    justify-content: center;
+    display: grid;
+    margin-bottom: -150px;
+    width: 150px;
+    margin-left: 12px;
+}

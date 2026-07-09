@@ -1,14 +1,15 @@
 (function () {
   var ns = $.namespace('pskl.tools.transform');
 
-  ns.Flip = function () {
+  ns.Flip = function (i18n) {
     this.toolId = 'tool-flip';
-    this.helpText = 'Flip horizontally';
-    this.tooltipDescriptors = [
-      {key : 'alt', description : 'Flip vertically'},
-      {key : 'ctrl', description : 'Apply to all layers'},
-      {key : 'shift', description : 'Apply to all frames'}
-    ];
+    this.helpText = i18n.flipTransformToolVertAxis();
+
+    this.tooltipDescriptors = [{key : 'alt', description : i18n.flipTransformToolDescriptorHorizAxis()}];
+    if (Constants.ENABLE_MULTIPLE_LAYERS) {
+      this.tooltipDescriptors.push({key : 'ctrl', description : i18n.flipTransformToolDescriptorApplyToAllLayers()});
+    }
+    this.tooltipDescriptors.push({key : 'shift', description : i18n.flipTransformToolDescriptorApplyToAllFrames()});
   };
 
   pskl.utils.inherit(ns.Flip, ns.AbstractTransformTool);

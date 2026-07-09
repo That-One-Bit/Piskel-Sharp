@@ -1,13 +1,13 @@
 (function () {
   var ns = $.namespace('pskl.tools.transform');
 
-  ns.Crop = function () {
+  ns.Crop = function (i18n) {
     this.toolId = 'tool-crop';
-    this.helpText = 'Crop the sprite';
+    this.helpText = i18n.cropTransformTool();
     this.tooltipDescriptors = [
       {
-        description : 'Crop to fit the content or the selection. ' +
-                      'Applies to all frames and layers!'
+        description : i18n.cropTransformToolDescriptorCropToFit() +
+                      i18n.cropTransformToolDescriptorAppliesToAllFramesLayers()
       }
     ];
   };

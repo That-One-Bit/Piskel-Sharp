@@ -4,13 +4,14 @@
    * Abstract shape tool class, parent to all shape tools (rectangle, circle).
    * Shape tools should override only the draw method
    */
-  ns.ShapeTool = function() {
+  ns.ShapeTool = function(i18n) {
     // Shapes's first point coordinates (set in applyToolAt)
     this.startCol = null;
     this.startRow = null;
 
     this.tooltipDescriptors = [
-      {key : 'shift', description : 'Keep 1 to 1 ratio'}
+      {key : 'ctrl', description : i18n.shapeToolDrawingDescriptorFillShape()},
+      {key : 'shift', description : i18n.shapeToolDrawingDescriptorKeep1To1Ratio()}
     ];
   };
 

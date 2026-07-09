@@ -1,5 +1,8 @@
+
 .save-field {
   width: 100%;
+  border-color: #3d0000;
+  color: #ff9f00;
 }
 
 .save-status {
@@ -14,7 +17,7 @@
 .save-file-name {
   white-space: nowrap;
   font-weight: bold;
-  color: white;
+  color: #ffffff;
   font-style: normal;
 }
 

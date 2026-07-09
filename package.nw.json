@@ -1,8 +1,8 @@
 {
-    "name": "Piskel",
+    "name": "Piskel Sharp: Beta",
     "main": "dest/prod/index.html",
     "window": {
-    "title": "Piskel",
+    "title": "Piskel Sharp: Beta",
     "icon": "dest/prod/logo.png",
     "toolbar": false,
     "width": 1200,

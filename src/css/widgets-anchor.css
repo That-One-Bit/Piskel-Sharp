@@ -22,25 +22,29 @@
   width: 20px;
   height: 20px;
 
-  background : #888;
+  background : #260000;
 
   font-size: 8px;
   text-align: center;
   cursor: pointer;
 }
 
+.disabled .anchor-option:hover {
+  border : 3px solid black !important;
+}
+
 .disabled .anchor-option {
   cursor: default;
-  background : #555;
-  border-color: #555 !important;
+  background : #000000;
+  border-color: #141414 !important;
 }
 
 .anchor-option:hover {
-  border : 3px solid white;
+  border : 3px solid #640000;
 }
 
 .anchor-option.selected {
-  border : 3px solid var(--highlight-color);
+  border : 3px solid #730000;
 }
 
 .anchor-option:before {
@@ -56,15 +60,15 @@
   content: '';
   width: 4px;
   height: 4px;
-  background: var(--highlight-color);
+  background: #920000;
 }
 
 .disabled .anchor-option.selected:before {
-  background: #555;
+  background: #000000;
 }
 
 .disabled .anchor-option[data-neighbor]:before {
-  border-color: #555 !important;
+  border-color: #000000 !important;
 }
 
 .anchor-option[data-neighbor]:before {
@@ -76,23 +80,23 @@
 }
 
 .anchor-option[data-neighbor="bottom"]:before {
-  border-top-color: var(--highlight-color);
+  border-top-color: #920000;
   margin-left: -4px;
 }
 
 .anchor-option[data-neighbor="left"]:before {
-  border-right-color: var(--highlight-color);
+  border-right-color: #920000;
   margin-top: -4px;
   margin-left: -6px;
 }
 
 .anchor-option[data-neighbor="top"]:before {
-  border-bottom-color: var(--highlight-color);
+  border-bottom-color: #920000;
   margin-top: -6px;
   margin-left: -4px;
 }
 
 .anchor-option[data-neighbor="right"]:before {
-  border-left-color: var(--highlight-color);
+  border-left-color: #920000;
   margin-top: -4px;
 }

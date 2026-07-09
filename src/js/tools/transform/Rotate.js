@@ -1,13 +1,15 @@
 (function () {
   var ns = $.namespace('pskl.tools.transform');
 
-  ns.Rotate = function () {
+  ns.Rotate = function (i18n) {
     this.toolId = 'tool-rotate';
-    this.helpText = 'Counter-clockwise rotation';
-    this.tooltipDescriptors = [
-      {key : 'alt', description : 'Clockwise rotation'},
-      {key : 'ctrl', description : 'Apply to all layers'},
-      {key : 'shift', description : 'Apply to all frames'}];
+    this.helpText = i18n.rotateTransformTool();
+
+    this.tooltipDescriptors = [{key : 'alt', description : i18n.rotateTransformToolDescriptorClockwiseRotation()}];
+    if (Constants.ENABLE_MULTIPLE_LAYERS) {
+      this.tooltipDescriptors.push({key : 'ctrl', description : i18n.rotateTransformToolDescriptorApplyToAllLayers()});
+    }
+    this.tooltipDescriptors.push({key : 'shift', description : i18n.rotateTransformToolDescriptorApplyToAllFrames()});
   };
 
   pskl.utils.inherit(ns.Rotate, ns.AbstractTransformTool);

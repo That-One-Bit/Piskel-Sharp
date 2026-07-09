@@ -6,11 +6,11 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing');
 
-  ns.Rectangle = function() {
-    ns.ShapeTool.call(this);
+  ns.Rectangle = function(i18n) {
+    ns.ShapeTool.call(this, i18n);
 
     this.toolId = 'tool-rectangle';
-    this.helpText = 'Rectangle tool';
+    this.helpText = i18n.rectangleDrawingTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.RECTANGLE;
   };
 
@@ -22,7 +22,12 @@
   ns.Rectangle.prototype.draw = function (col, row, color, targetFrame, penSize) {
     var rectangle = pskl.PixelUtils.getOrderedRectangleCoordinates(this.startCol, this.startRow, col, row);
 
-    for (var x = rectangle.x0; x <= rectangle.x1; x++) {
+    if (event.ctrlKey) {
+      for (var x = rectangle.x0; x <= rectangle.x1; x++) {
+      for (var y = rectangle.y0; y <= rectangle.y1; y++) {
+        targetFrame.setPixel(x, y, color);
+    }}} else {
+      for (var x = rectangle.x0; x <= rectangle.x1; x++) {
       for (var y = rectangle.y0; y <= rectangle.y1; y++) {
         if (
           x > rectangle.x1 - penSize ||
@@ -33,6 +38,7 @@
           targetFrame.setPixel(x, y, color);
         }
       }
+    }
     }
   };
 })();

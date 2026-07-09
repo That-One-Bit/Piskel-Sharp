@@ -1,3 +1,11 @@
 html, body {
-  --highlight-color: gold;
+  --sharp-light-gold: #ffd700;
+  --sharp-gold: #b49700;
+  --sharp-dark-gold-a: #c28f00;
+  --sharp-dark-gold-b: #764c00;
+  --sharp-light-red: #af0000;
+  --sharp-dark-red: #5c0000;
+  --sharp-black: #0d0a06;
+  --sharp-orange: #e89100;
+  --highlight-color: var(--sharp-light-gold);
 }

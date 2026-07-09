@@ -15,7 +15,7 @@
   width: 130px;
   overflow: hidden;
   vertical-align: middle;
-  margin-left: 5px;
+  margin-left: 15px;
 }
 
 .background-picker {
@@ -25,17 +25,18 @@
   width: 14px;
   background-color: transparent;
   margin-right: 5px;
+  margin-bottom: 5px;
   padding: 1px;
   position: relative;
-  border: #888 2px solid;
+  border: #8a0000 2px solid;
 }
 
 .background-picker:hover {
-  border-color: #eee;
+  border-color: #ff9595;
 }
 
 .background-picker.selected {
-  border-color: var(--highlight-color);
+  border-color: var(--sharp-light-red);
 }
 
 .settings-opacity-input {
@@ -53,7 +54,7 @@
   display: inline-block;
   line-height: 30px;
   width: 40px;
-  border: 1px solid grey;
+  border: 1px solid var(--sharp-light-red);
   box-sizing: border-box;
   border-radius: 3px;
   text-align: center;
@@ -97,17 +98,21 @@
 
 .settings-item-grid-size .size-picker-option,
 .settings-item-grid-spacing .size-picker-option {
-  border-color: #888;
+  border-color: #745600;
 }
 
 .settings-item-grid-size .size-picker-option:not(.selected):hover,
 .settings-item-grid-spacing .size-picker-option:not(.selected):hover {
-  border-color: white;
+  border-color: #ffffff;
 }
 
 .grid-width-select,
 .color-format-select {
   margin: 5px 5px 0 5px;
+  background-color: black;
+  color: #fff;
+  border-color: var(--sharp-light-red);
+  
 }
 
 
@@ -121,18 +126,18 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  border: 2px solid #888;
+  border: 2px solid #000000;
   margin-right: 2px;
   margin-bottom: 2px;
   box-sizing: border-box;
 }
 
 .grid-colors-item:hover {
-  border-color: white;
+  border-color: #ffffff;
 }
 
 .grid-colors-item.selected {
-  border-color: gold;
+  border-color: var(--sharp-light-gold);
 }
 
 .settings-section-preferences > .settings-title {
@@ -144,17 +149,23 @@
   margin-top: 10px;
 }
 
+.settings-based-info {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  color: #ffffff;
+}
 .settings-version-info {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  color: #888;
+  color: #ffffff;
 }
 
 /* Override default link styles for the release notes link
    It doesn't need to popout too much */
 .settings-version,
 .settings-version:hover {
-  color: white !important;
+  color: #ffc300 !important;
   text-decoration: none !important;
 }

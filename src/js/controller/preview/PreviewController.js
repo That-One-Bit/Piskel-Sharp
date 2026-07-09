@@ -5,7 +5,8 @@
   var PREVIEW_SIZE = 200;
   var RENDER_MINIMUM_DELAY = 300;
 
-  ns.PreviewController = function (piskelController, container) {
+  ns.PreviewController = function (piskelController, container, i18n) {
+    this.i18n = i18n;
     this.piskelController = piskelController;
     this.container = container;
 
@@ -19,7 +20,7 @@
     this.previewActionsController = new ns.PreviewActionsController(this, container);
   };
 
-  ns.PreviewController.prototype.init = function () {
+  ns.PreviewController.prototype.init = function() {
     var width = Constants.ANIMATED_PREVIEW_WIDTH + Constants.RIGHT_COLUMN_PADDING_LEFT;
     document.querySelector('.right-column').style.width = width + 'px';
 

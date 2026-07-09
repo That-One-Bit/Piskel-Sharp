@@ -128,6 +128,7 @@
 
   // Settings sub-controllers
   "js/controller/settings/AbstractSettingController.js",
+  "js/controller/settings/ChangelogController.js",
   "js/controller/settings/preferences/GridPreferencesController.js",
   "js/controller/settings/preferences/MiscPreferencesController.js",
   "js/controller/settings/preferences/TilePreferencesController.js",
@@ -271,5 +272,6 @@
   "js/app.js",
 
   // Bonus features !!
-  "js/snippets.js"
+  "js/snippets.js",
+  "js/locales.js"
 ];

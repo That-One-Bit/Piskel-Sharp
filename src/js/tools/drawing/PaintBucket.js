@@ -6,9 +6,9 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing');
 
-  ns.PaintBucket = function() {
+  ns.PaintBucket = function(i18n) {
     this.toolId = 'tool-paint-bucket';
-    this.helpText = 'Paint bucket tool';
+    this.helpText = i18n.paintBucketDrawingTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.PAINT_BUCKET;
   };
 

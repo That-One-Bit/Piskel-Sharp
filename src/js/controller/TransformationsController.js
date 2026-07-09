@@ -2,13 +2,13 @@
   var ns = $.namespace('pskl.controller');
   var SHOW_MORE_CLASS = 'show-more';
 
-  ns.TransformationsController = function () {
+  ns.TransformationsController = function (i18n) {
     this.tools = [
-      new pskl.tools.transform.Flip(),
-      new pskl.tools.transform.Rotate(),
-      new pskl.tools.transform.Clone(),
-      new pskl.tools.transform.Center(),
-      new pskl.tools.transform.Crop(),
+      new pskl.tools.transform.Flip(i18n),
+      new pskl.tools.transform.Rotate(i18n),
+      new pskl.tools.transform.Clone(i18n),
+      new pskl.tools.transform.Center(i18n),
+      new pskl.tools.transform.Crop(i18n),
     ];
 
     this.toolIconBuilder = new pskl.tools.ToolIconBuilder();

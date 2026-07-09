@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'piskel';
+  font-family: 'icomoon';
   src:url('fonts/icomoon.eot?-3olv93');
   src:url('fonts/icomoon.eot?#iefix-3olv93') format('embedded-opentype'),
     url('fonts/icomoon.woff?-3olv93') format('woff'),
@@ -10,7 +10,7 @@
 }
 
 [class^="piskel-icon-"], [class*=" piskel-icon-"] {
-  font-family: 'piskel';
+  font-family: 'icomoon';
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -93,4 +93,27 @@
 
 .piskel-icon-arrow-down-thin:before {
   content: "\e60f";
+}
+
+.piskel-icon-lock-locked:before {
+  content: "\e98f";
+}
+
+.piskel-icon-lock-unlocked:before {
+  content: "\e990";
+}
+
+/**********************/
+/* Define Piskel Font */
+/**********************/
+
+@font-face {
+  font-family: 'piskel';
+  src:url('fonts/piskel.eot?-3olv93');
+  src:url('fonts/piskel.eot?#iefix-3olv93') format('embedded-opentype'),
+    url('fonts/piskel.woff?-3olv93') format('woff'),
+    url('fonts/piskel.ttf?-3olv93') format('truetype'),
+    url('fonts/piskel.svg?-3olv93#piskel') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }

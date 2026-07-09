@@ -6,18 +6,12 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing');
 
-  ns.TogglePen = function() {
+  ns.TogglePen = function(i18n) {
     this.toolId = 'tool-toggle-pen';
-    this.helpText = 'Pencil tool';
+    this.helpText = i18n.pencilDrawingTool();
     this.tooltipDescriptors = [
       {
-        description: 'Classic Macintosh style Pencil. ' +
-        'Draws in the opposite color of the pixel the stroke begins on. ' +
-        'If the stroke begins on transparent, or the secondary color, it draws in the primary color. ' +
-        'If the stroke begins on the primary color, it draws in the secondary color. ' +
-        'This minimizes the need to switch between selected colors. ' +
-        'To draw in a single color you won\'t need to change colors or tools at all. '
-      },
+        description: i18n.pencilDrawingToolDescriptorDescription() },
     ];
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.TOGGLE_PEN;
 

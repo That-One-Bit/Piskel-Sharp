@@ -5,12 +5,11 @@
 .textfield {
   box-sizing:border-box;
 
-  background : black;
-  border : 1px solid #888;
+  background : #000000;
+  border : 1px solid #570000;
   border-radius : 2px;
   padding : 3px 10px;
-  color : white;
-
+  color : #ffffff;
   height: 23px;
 }
 
@@ -19,22 +18,23 @@
 }
 
 .textfield[disabled=disabled] {
-  background : #3a3a3a;
+  background : #000000;
 }
 
 .textfield:focus {
-  border-color: var(--highlight-color);
+  border-color: #af0000;
   outline: none;
 }
 
 .textfield-small {
   width : 50px;
+  border-color: #8e0000;
 }
 
 .button {
   box-sizing: border-box;
   height: 24px;
-  background-color: #666;
+  background-color: #000000;
   border-style: none;
   border-radius: 2px;
   cursor: pointer;
@@ -49,24 +49,24 @@
 }
 
 .button:hover {
-  color: var(--highlight-color);
+  color: gold;
 }
 
 .button-primary {
-  background-color: var(--highlight-color);
+  background-color: gold;
   color: black;
 }
 
 .button-primary:hover {
-  background-color: white;
-  color: black;
+  background-color: #413800;
+  color: #ffc800;
 }
 
 .button[disabled],
 .button[disabled]:hover {
   cursor:default;
-  background-color: #aaa;
-  color: #777;
+  background-color: #404040;
+  color: #8d8d8d;
 }
 
 .import-size-field,

@@ -1,10 +1,10 @@
 // TODO(grosbouddha): put under pskl namespace.
 var Constants = {
   DEFAULT : {
-    HEIGHT : 32,
-    WIDTH : 32,
+    HEIGHT : 16,
+    WIDTH : 16,
     FPS : 0,
-    LAYER_OPACITY : 0.2
+    LAYER_OPACITY : 0.35
   },
 
   MODEL_VERSION : 2,
@@ -22,7 +22,7 @@ var Constants = {
   // Keep in sync with padding-left: 10px in layout.css
   RIGHT_COLUMN_PADDING_LEFT : 10,
 
-  DEFAULT_PEN_COLOR : '#000000',
+  DEFAULT_PEN_COLOR : '#070707',
   TRANSPARENT_COLOR : 'rgba(0, 0, 0, 0)',
   SEAMLESS_MODE_OVERLAY_COLOR : 'rgba(255, 255, 255, 0)',
 
@@ -32,7 +32,7 @@ var Constants = {
    * Fake semi-transparent color used to highlight transparent
    * strokes and rectangles:
    */
-  SELECTION_TRANSPARENT_COLOR: 'rgba(160, 215, 240, 0.6)',
+  SELECTION_TRANSPARENT_COLOR: 'rgba(218, 170, 103, 0.48)',
 
   /*
    * When a tool is hovering the drawing canvas, we highlight the eventual
@@ -41,7 +41,7 @@ var Constants = {
   TOOL_HIGHLIGHT_COLOR_LIGHT: 'rgba(255, 255, 255, 0.2)',
   TOOL_HIGHLIGHT_COLOR_DARK: 'rgba(0, 0, 0, 0.2)',
 
-  ZOOMED_OUT_BACKGROUND_COLOR : '#A0A0A0',
+  ZOOMED_OUT_BACKGROUND_COLOR : '#070707',
 
   LEFT_BUTTON : 0,
   MIDDLE_BUTTON : 1,

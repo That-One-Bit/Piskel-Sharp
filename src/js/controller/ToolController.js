@@ -1,27 +1,27 @@
 (function () {
   var ns = $.namespace('pskl.controller');
 
-  ns.ToolController = function () {
+  ns.ToolController = function (i18n) {
 
     this.tools = [
-      new pskl.tools.drawing.TogglePen(),
-      new pskl.tools.drawing.SimplePen(),
-      new pskl.tools.drawing.VerticalMirrorPen(),
-      new pskl.tools.drawing.Eraser(),
-      new pskl.tools.drawing.ColorSwap(),
-      new pskl.tools.drawing.Stroke(),
-      new pskl.tools.drawing.Rectangle(),
-      new pskl.tools.drawing.Circle(),
-      new pskl.tools.drawing.Move(),
-      new pskl.tools.drawing.selection.ShapeSelect(),
-      new pskl.tools.drawing.selection.RectangleSelect(),
-      new pskl.tools.drawing.selection.LassoSelect(),
-      new pskl.tools.drawing.Lighten(),
-      new pskl.tools.drawing.ShiftIndex(),
-      new pskl.tools.drawing.DitheringTool(),
-      new pskl.tools.drawing.ColorPicker(),
-      new pskl.tools.drawing.PaintBucket(),
-      new pskl.tools.drawing.Outliner()
+      new pskl.tools.drawing.TogglePen(i18n),
+      new pskl.tools.drawing.SimplePen(i18n),
+      new pskl.tools.drawing.VerticalMirrorPen(i18n),
+      new pskl.tools.drawing.Eraser(i18n),
+      new pskl.tools.drawing.ColorSwap(i18n),
+      new pskl.tools.drawing.Stroke(i18n),
+      new pskl.tools.drawing.Rectangle(i18n),
+      new pskl.tools.drawing.Circle(i18n),
+      new pskl.tools.drawing.Move(i18n),
+      new pskl.tools.drawing.selection.ShapeSelect(i18n),
+      new pskl.tools.drawing.selection.RectangleSelect(i18n),
+      new pskl.tools.drawing.selection.LassoSelect(i18n),
+      new pskl.tools.drawing.Lighten(i18n),
+      new pskl.tools.drawing.ShiftIndex(i18n),
+      new pskl.tools.drawing.DitheringTool(i18n),
+      new pskl.tools.drawing.ColorPicker(i18n),
+      new pskl.tools.drawing.PaintBucket(i18n),
+      new pskl.tools.drawing.Outliner(i18n)
     ];
 
     this.toolIconBuilder = new pskl.tools.ToolIconBuilder();

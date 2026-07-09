@@ -6,8 +6,9 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing.selection');
 
-  ns.BaseSelect = function() {
+  ns.BaseSelect = function(i18n) {
     this.secondaryToolId = pskl.tools.drawing.Move.TOOL_ID;
+    this.bodyRoot = $('body');
 
     // Select's first point coordinates (set in applyToolAt)
     this.startCol = null;
@@ -20,12 +21,13 @@
     this.hasSelection = false;
 
     this.tooltipDescriptors = [
-      {description : 'Drag the selection to move it. You may switch to other layers and frames.'},
-      {key : 'ctrl+c', description : 'Copy the selected area'},
-      {key : 'ctrl+v', description : 'Paste the copied area'},
-      {key : 'shift', description : 'Hold to move the content'}
+      {description : i18n.baseSelectDrawingSelectionToolDescriptorDragTheSelection()},
+      {key : 'ctrl+c', description : i18n.baseSelectDrawingSelectionToolDescriptorDuplicateTheSelectedArea()},
+      {key : 'shift', description : i18n.baseSelectDrawingSelectionToolDescriptorMoveTheContent()}
     ];
-
+    if (!Constants.ENABLE_MULTIPLE_LAYERS) {
+      this.tooltipDescriptors[0] = {description : i18n.baseSelectDrawingSelectionToolDescriptorDragTheSelectionMaySwitchToOtherFrames()};
+    }
     $.subscribe(Events.SELECTION_DISMISSED, this.onSelectionDismissed_.bind(this));
   };
 
@@ -42,7 +44,7 @@
     this.lastMoveRow = row;
 
     // The select tool can be in two different state.
-    // If the initial click of the tool is not on a selection, we go in 'select'
+    // If the inital click of the tool is not on a selection, we go in 'select'
     // mode to create a selection.
     // If the initial click is on a previous selection, we go in 'moveSelection'
     // mode to allow to move the selection by drag'n dropping it.
@@ -91,12 +93,12 @@
     if (overlay.containsPixel(col, row)) {
       if (this.isInSelection(col, row)) {
         // We're hovering the selection, show the move tool:
-        document.body.classList.add(this.secondaryToolId);
-        document.body.classList.remove(this.toolId);
+        this.bodyRoot.addClass(this.secondaryToolId);
+        this.bodyRoot.removeClass(this.toolId);
       } else {
         // We're not hovering the selection, show create selection tool:
-        document.body.classList.add(this.toolId);
-        document.body.classList.remove(this.secondaryToolId);
+        this.bodyRoot.addClass(this.toolId);
+        this.bodyRoot.removeClass(this.secondaryToolId);
       }
     }
 
@@ -184,6 +186,12 @@
 
     this.lastMoveCol = col;
     this.lastMoveRow = row;
+  };
+
+  // Redraw a given overlay.
+  ns.BaseSelect.prototype.reDraw = function (overlay) {
+    overlay.clear();
+    this.drawSelectionOnOverlay_(overlay);
   };
 
   /** @private */

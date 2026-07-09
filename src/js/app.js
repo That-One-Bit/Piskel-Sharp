@@ -9,7 +9,38 @@
    */
   ns.app = {
 
-    init : function () {
+    init: function () {
+      
+      /**
+        * Piskel Sharp supports Internalization(i18n) by providing translations of its UI elements.
+        *
+        * The available strings are in `i18n/locales` directory and each locale has its own file.
+        * For example: `en_us.json` where `en` is English and `us` is United States
+        * Note that en_us.json should contain all available strings because this is the locale other
+        * languages will fallback to if a translation from English doesn't exist.
+        *
+        * The strings that we will be used depend on the window.piskel_locale. window.piskel_locale is the 4 letter locale
+        * code defined by users of the Piskel library so they can optionally load non-English strings
+        * into the Piskel UI. For example "en_us" or "es_es"
+        *
+        * window.piskel_locales will contains all strings available, then we will use window.piskel_locale to select the language
+        * we want strings to be in. All of this is happening here: var i18n = window.piskel_locales[window.piskel_locale];
+        * In the case that window.piskel_locale is undefined, we set the strings to English by default
+        *
+        * Example Usage tools/drawing/SimplePen.js:
+        * this.helpText = i18n.simplePenDrawingTool()
+        * Now when the user hovers over the Pen tool, they will see the translation based on the locale
+        * The i18n object is passed in the Controllers that have text to translate. For example ToolController takes in the
+        * i18n object so that it can be used in all the Tools like Stroke and Pen Tool
+        *
+        * To see how each key becomes a function look at the tasks/build-i18n.js file where we use the MessageFormat API
+      */
+
+      if (window.piskel_locale === undefined) {
+        window.piskel_locale = 'en_us';
+      }
+      var i18n = window.piskel_locales[window.piskel_locale];
+
       /**
        * When started from APP Engine, appEngineToken_ (Boolean) should be set on window.pskl
        */
@@ -26,7 +57,7 @@
 
       var size = pskl.UserSettings.get(pskl.UserSettings.DEFAULT_SIZE);
       var fps = Constants.DEFAULT.FPS;
-      var descriptor = new pskl.model.piskel.Descriptor('New Piskel', '');
+      var descriptor = new pskl.model.piskel.Descriptor('New Piskel', 'The base piskel, made when loading piskel.');
       var piskel = new pskl.model.Piskel(size.width, size.height, fps, descriptor);
 
       var layer = new pskl.model.Layer('Layer 1');
@@ -72,7 +103,7 @@
 
       this.previewController = new pskl.controller.preview.PreviewController(
         this.piskelController,
-        document.querySelector('#animated-preview-canvas-container'));
+        document.querySelector('#animated-preview-canvas-container'), i18n);
       this.previewController.init();
 
       this.minimapController = new pskl.controller.MinimapController(
@@ -84,7 +115,7 @@
 
       this.framesListController = new pskl.controller.FramesListController(
         this.piskelController,
-        document.querySelector('#preview-list-wrapper'));
+        document.querySelector('#preview-list-wrapper'), i18n);
       this.framesListController.init();
 
       this.layersListController = new pskl.controller.LayersListController(this.piskelController);
@@ -96,7 +127,7 @@
       this.dialogsController = new pskl.controller.dialogs.DialogsController(this.piskelController);
       this.dialogsController.init();
 
-      this.toolController = new pskl.controller.ToolController();
+      this.toolController = new pskl.controller.ToolController(i18n);
       this.toolController.init();
 
       this.selectionManager = new pskl.selection.SelectionManager(this.piskelController);
@@ -108,7 +139,7 @@
       this.notificationController = new pskl.controller.NotificationController();
       this.notificationController.init();
 
-      this.transformationsController = new pskl.controller.TransformationsController();
+      this.transformationsController = new pskl.controller.TransformationsController(i18n);
       this.transformationsController.init();
 
       this.progressBarController = new pskl.controller.ProgressBarController();
@@ -259,6 +290,15 @@
       var renderer = new pskl.rendering.PiskelRenderer(this.piskelController);
       var framesheetCanvas = renderer.renderAsCanvas();
       return framesheetCanvas.toDataURL('image/png');
+    },
+
+    switchLocale : function switchLocale(localeCode) {
+      window.piskel_locale = localeCode;
+      window.i18n = window.piskel_locales[localeCode];
+
+      this.toolController = new pskl.controller.ToolController(i18n);
+      this.toolController.init();
+      this.initTooltips_();
     }
   };
 })();

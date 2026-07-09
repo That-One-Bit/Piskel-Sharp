@@ -2,6 +2,10 @@
   var ns = $.namespace('pskl.controller.settings');
 
   var settings = {
+    'changelog' : {
+      template : 'templates/settings/changelog.html',
+      controller : ns.ChangelogController
+    },
     'user' : {
       template : 'templates/settings/preferences.html',
       controller : ns.PreferencesController

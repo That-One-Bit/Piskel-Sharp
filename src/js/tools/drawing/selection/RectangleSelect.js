@@ -6,11 +6,11 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing.selection');
 
-  ns.RectangleSelect = function() {
-    ns.AbstractDragSelect.call(this);
+  ns.RectangleSelect = function(i18n) {
+    ns.AbstractDragSelect.call(this, i18n);
 
     this.toolId = 'tool-rectangle-select';
-    this.helpText = 'Rectangle selection';
+    this.helpText = i18n.rectangleSelectDrawingSelectionTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.RECTANGLE_SELECT;
 
   };
@@ -24,8 +24,8 @@
 
   /**
    * When creating the rectangle selection, we clear the current overlayFrame and
-   * redraw the current rectangle based on the origin coordinate and
-   * the current mouse coordinate in sprite.
+   * redraw the current rectangle based on the orgin coordinate and
+   * the current mouse coordiinate in sprite.
    * @override
    */
   ns.RectangleSelect.prototype.onDragSelect_ = function (col, row, frame, overlay) {

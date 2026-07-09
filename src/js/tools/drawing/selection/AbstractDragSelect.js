@@ -6,8 +6,8 @@
 (function () {
   var ns = $.namespace('pskl.tools.drawing.selection');
 
-  ns.AbstractDragSelect = function () {
-    ns.BaseSelect.call(this);
+  ns.AbstractDragSelect = function(i18n) {
+    ns.BaseSelect.call(this, i18n);
   };
 
   pskl.utils.inherit(ns.AbstractDragSelect, ns.BaseSelect);

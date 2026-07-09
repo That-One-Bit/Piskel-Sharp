@@ -7,24 +7,16 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing');
 
-  ns.ShiftIndex = function() {
-    this.superclass.constructor.call(this);
+  ns.ShiftIndex = function(i18n) {
+    this.superclass.constructor.call(this, i18n);
 
     this.toolId = 'tool-shift-index';
-    this.helpText = 'Shift Palette Color Index Brush';
+    this.helpText = i18n.shiftIndexDrawingTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.SHIFT_INDEX;
 
     this.tooltipDescriptors = [
-      {
-        description: 'Changes the color of pixels which are in the current palette. ' +
-					'For each pixel it touches, the next or previous color within the palette will be used. ' +
-					'Use the primary and secondary colors in the palette to set ' +
-					'cell shade range boundaries. For example if your palette has: ' +
-					'- light red, dark red, light blue, dark blue - ' +
-					'you would want to set the primary colour to light red and secondary to dark red. ' +
-					'This will prevent the brush from cycling red to blue'
-      },
-			{ key: 'ctrl', description: 'Shift Index backwards' },
+      { description: i18n.shiftIndexDescriptorUsage() },
+			{ key: 'ctrl', description: i18n.shiftIndexDescriptorShiftBack() },
     ];
   };
 

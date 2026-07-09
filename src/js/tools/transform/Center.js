@@ -1,13 +1,14 @@
 (function () {
   var ns = $.namespace('pskl.tools.transform');
 
-  ns.Center = function () {
+  ns.Center = function (i18n) {
     this.toolId = 'tool-center';
-    this.helpText = 'Align image to the center';
-    this.tooltipDescriptors = [
-      {key : 'ctrl', description : 'Apply to all layers'},
-      {key : 'shift', description : 'Apply to all frames'}
-    ];
+    this.helpText = i18n.centerTransformTool();
+    this.tooltipDescriptors = [];
+    if (Constants.ENABLE_MULTIPLE_LAYERS) {
+      this.tooltipDescriptors.push({key : 'ctrl', description : i18n.centerTransformToolDescriptorApplyToAllLayers()});
+    }
+    this.tooltipDescriptors.push({key : 'shift', description : i18n.centerTransformToolDescriptorApplyToAllFrames()});
   };
 
   pskl.utils.inherit(ns.Center, ns.AbstractTransformTool);

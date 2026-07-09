@@ -4,12 +4,12 @@
   width: 46px;
   height: 46px;
   margin: 1px;
-  background-color: #3a3a3a;
+  background-color: #000;
 }
 
 .tool-icon.selected {
   cursor: default;
-  background-color: #444;
+  background-color: #544700;
 }
 
 .tool-icon.selected:before {
@@ -22,7 +22,7 @@
 }
 
 .tool-icon:hover {
-  background-color: #444;
+  background-color: #272100;
 }
 
 /*

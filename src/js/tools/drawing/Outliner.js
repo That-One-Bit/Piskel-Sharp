@@ -6,12 +6,13 @@
 (function() {
   var ns = $.namespace('pskl.tools.drawing');
 
-  ns.Outliner = function() {
+  ns.Outliner = function(i18n) {
     this.toolId = 'tool-outliner';
-    this.helpText = 'Outliner tool';
+    this.helpText = i18n.outlinerDrawingTool();
     this.shortcut = pskl.service.keyboard.Shortcuts.TOOL.OUTLINER;
+
     this.tooltipDescriptors = [
-      {key : 'ctrl', description : 'Fill corners'}
+      {key : 'ctrl', description : i18n.outlinerDrawingToolDescriptorFillCorners()}
     ];
   };
 

@@ -1,3 +1,4 @@
+
 /**
  * Animated preview styles.
  */
@@ -25,7 +26,7 @@
 }
 
 #animated-preview-container {
-  background: #333;
+  background: #121212;
   border-radius : 0 0 2px 2px;
   overflow : hidden;
 }
@@ -45,7 +46,7 @@
 
 .display-fps {
   float: left;
-  color: #aaa;
+  color: #b4b4b4;
   font-size: 12px;
   min-width: 55px;
   vertical-align: bottom;
@@ -62,7 +63,7 @@
 
 .preview-toggle-onion-skin {
   font-size: 2rem;
-  color: #aaa;
+  color: #c6c6c6;
   float: left;
   line-height: 26px;
   height: 100%;
@@ -79,7 +80,7 @@
 
 .preview-toggle-onion-skin-enabled,
 .preview-toggle-onion-skin-enabled:hover {
-  color : var(--highlight-color);
+  color : #9c8300;
 }
 
 .preview-contextual-actions {
@@ -120,16 +121,16 @@
 }
 
 .preview-contextual-action:hover {
-  color: var(--highlight-color);
-  border-color: var(--highlight-color);
+  color: gold;
+  border-color: gold;
 }
 
 /**
  * If the icon represents an enabled state, the border should always be gold.
  */
 .preview-contextual-action-enabled {
-  color: var(--highlight-color);
-  border-color: var(--highlight-color);
+  color: gold;
+  border-color: gold;
 }
 
 /**
@@ -189,7 +190,7 @@
 }
 
 .open-popup-preview-button:hover {
-  border-color: var(--highlight-color);
+  border-color: gold;
 }
 
 /**
