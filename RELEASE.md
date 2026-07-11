@@ -1,5 +1,7 @@
 # Release instructions
 
+This information is useless to us peasants.
+
 - retrieve source code and dependencies
   - clone piskel `git clone https://github.com/piskelapp/piskel`
   - clone piskel website `git clone https://github.com/piskelapp/piskel-website`
