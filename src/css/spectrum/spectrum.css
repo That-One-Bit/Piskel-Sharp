@@ -85,7 +85,7 @@ License: MIT
     height: 8px;
 }
 .sp-alpha-inner {
-    border: solid 1px #333;
+    border: solid 1px #000000;
 }
 
 /* Don't allow text selection */
@@ -219,7 +219,7 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 
 .sp-container {
     border-radius: 0;
-    background-color: #ECECEC;
+    background-color: #0f0f0f;
     border: solid 1px #f0c49B;
     padding: 0;
 }
@@ -230,6 +230,8 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     box-sizing: border-box;
+
+    color: #ffe557;
 }
 .sp-top
 {
@@ -264,8 +266,8 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 }
 .sp-input.sp-validation-error
 {
-    border: 1px solid red;
-    background: #fdd;
+    border: 1px solid #ffffff;
+    background: #000000;
 }
 .sp-picker-container , .sp-palette-container
 {
@@ -345,7 +347,7 @@ See http://bgrins.github.io/spectrum/themes/ for instructions.
 }
 .sp-replacer.sp-disabled {
     cursor:default;
-    border-color: silver;
+    border-color: #b2b2b2;
     color: silver;
 }
 .sp-dd {

@@ -2,7 +2,6 @@
   "name": "piskel-sharp",
   "version": "0.2.0",
   "private": true,
-  "chromium-args": "--user-data-dir=\"C:\\PiskelSharpUserData\"",
   "description": "A fork of the popular pixel art editor, Piskel, that adds new features and localization.",
   "author": "Matt Sephton, That-One-Bit",
   "homepage": "https://github.com/that-one-bit/piskel-sharp",
@@ -19,35 +18,32 @@
     "piskel-root": "./misc/scripts/piskel-root",
     "piskel-cli": "./cli/index.js"
   },
-  "main": "http://localhost:9901/?debug",
-  "node-remote": "http://localhost:9901/?debug",
+  "main": "./dest/prod/index.html",
   "scripts": {
     "grunt": "grunt",
     "postinstall": "base-volta-off-of-nwjs",
     "test": "grunt test",
-    "dev": "concurrently -k npm:dev:*",
-    "dev:website": "grunt play",
-    "dev:desktop": "wait-on -c waitOn.config.json http-get://localhost:9901/?debug && nw .",
+    "dev": "grunt play",
     "start": "grunt build && nw",
     "preversion": "grunt test build",
     "postversion": "git push && git push --tags && npm publish",
     "release": "grunt && node ./bin/copy-to-piskel-website",
     "build:win": "grunt desktop-win-x64",
-    "build:linux": "grunt desktop-linux-x64",
     "build:mac": "grunt desktop-osx-x64",
     "build:mac-arm": "grunt desktop-osx-arm",
     "format": "grunt eslint --fix"
   },
   "devDependencies": {
+    "grunt-nw-builder": "4.6.1",
     "base-volta-off-of-nwjs": "1.0.5",
-    "concurrently": "8.2.2",
     "date-fns": "3.6.0",
+    "fs-extra": "11.2.0",
     "grunt": "1.6.1",
     "grunt-casperjs": "2.2.1",
-    "grunt-cli": "1.5.0",
+    "grunt-cli": "1.4.3",
     "grunt-contrib-clean": "2.0.1",
     "grunt-contrib-concat": "2.1.0",
-    "grunt-contrib-connect": "5.0.0",
+    "grunt-contrib-connect": "4.0.0",
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-uglify": "5.2.2",
     "grunt-contrib-watch": "1.1.0",
@@ -55,19 +51,17 @@
     "grunt-include-replace": "5.0.0",
     "grunt-karma": "4.0.2",
     "grunt-leading-indent": "0.2.0",
-    "grunt-nw-builder": "4.8.1",
     "grunt-replace": "2.0.2",
     "grunt-spritesmith": "6.10.0",
-    "jasmine-core": "5.2.0",
-    "karma": "6.4.4",
+    "jasmine-core": "5.1.2",
+    "karma": "6.4.3",
     "karma-chrome-launcher": "3.2.0",
     "karma-jasmine": "4.0.2",
     "load-grunt-tasks": "5.1.0",
-    "nw": "0.90.0-1",
+    "nw": "0.86.0-2",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "2.1.16",
-    "promise-polyfill": "8.3.0",
-    "wait-on": "^7.2.0"
+    "promise-polyfill": "8.3.0"
   },
   "window": {
     "title": "Piskel",
@@ -82,9 +76,11 @@
     "casperjs": "^1.1.4",
     "minimist": "1.2.8",
     "messageformat": "^2.3.0"
+
   },
   "volta": {
     "node": "22.2.0"
+
   },
   "ManifestComments": [
     "Pin karma-jasmine to v4.0.2 since some tests fail on v5.0.0"

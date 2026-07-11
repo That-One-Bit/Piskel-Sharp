@@ -3,7 +3,7 @@
   bottom: 10px;
   left: 10px;
 
-  color : var(--highlight-color);
+  color : gold;
   font-weight: bold;
   font-size : 1.25em;
   line-height: 20px;
@@ -80,7 +80,7 @@
 }
 
 .cheatsheet-description {
-  color: white;
+  color: #ffffff;
   font-size : 14px;
   margin-left: 10px;
   line-height : 30px;
@@ -93,14 +93,14 @@
   line-height: 26px;
   padding: 0 10px;
 
-  border : 2px solid white;
+  border : 2px solid #4d0000;
   border-radius: 2px;
 
   text-align: center;
   font-family: monospace;
   font-weight: bold;
   font-size : 18px;
-  color: white;
+  color: #ffd700;
 }
 
 .cheatsheet-shorcut-conflict .cheatsheet-key {
@@ -113,8 +113,8 @@
 }
 
 .cheatsheet-shortcut-editable .cheatsheet-key {
-  border-color: var(--highlight-color);
-  color: var(--highlight-color);
+  border-color: #312900;
+  color: gold;
 }
 
 .cheatsheet-shortcut-editing .cheatsheet-key {
@@ -140,14 +140,14 @@
   padding : 10px;
   overflow: hidden;
 
-  background-color : var(--highlight-color);
+  background-color : #ffd700;
 }
 
 .cheatsheet-helptext {
   font-size: 14px;
   height : 26px;
   line-height : 26px;
-  color: black;
+  color: #ffffff;
 }
 
 .cheatsheet-helptext-tooltip {

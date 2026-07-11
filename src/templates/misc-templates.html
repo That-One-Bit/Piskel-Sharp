@@ -29,4 +29,43 @@
       {{description}}
     </div>
   </script>
+
+  <!-- ----------------------------------------------------------- -->
+  <!-- Resize Tool -->
+  <!-- Template for Resize Settings Title -->
+  <script type="text/template" id="resize-settings-template">
+    {{text}}
+  </script>
+
+  <!-- Template for Width and Height -->
+  <script type="text/template" id="resize-tool-template">
+    <div class="resize-section">
+      <span class="resize-section-title">{{spanText}}</span>
+      <input type="text" class="textfield resize-size-field" autocomplete="off" name="{{inputName}}"/>
+      <span>px</span>
+    </div>
+  </script>
+
+  <!-- Template for Ratio and Canvas -->
+  <script type="text/template" id="ratio-canvas-template">
+    <div class="resize-section">
+      <label class="checkbox-container">
+        <input type="checkbox" class="{{cssClass}} checkbox-fix" value="true"/>
+        <span>{{spanText}}</span>
+      </label>
+    </div>
+  </script>
+
+  <!-- Template for Anchor -->
+  <script type="text/template" id="resize-anchor-template">
+    <div class="resize-section">
+      <span class="resize-section-title">{{spanText}}</span>
+      <div class="resize-anchor-container"></div>
+    </div>
+  </script>
+
+  <!-- Template for Resize Submit Button -->
+  <script type="text/template" id="resize-button-template">
+    <input type="submit" class="button button-primary resize-button" value="{{valueText}}" />
+  </script>
 </div>

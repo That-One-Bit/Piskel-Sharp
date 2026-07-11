@@ -34,6 +34,11 @@ input[type="range"] {
   accent-color: var(--sharp-dark-red);
 }
 
+input[type="range"]:hover {
+  padding: 0;
+  accent-color: var(--sharp-light-red);
+}
+
 /* Force apparition of scrollbars on leopard */
 ::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -42,11 +47,12 @@ input[type="range"] {
 
 ::-webkit-scrollbar-thumb {
     border-radius: 2px;
-    background-color: #666;
+    background-color: #ffc600
 }
 
+/* The border/bar thing next to the frames list */
 ::-webkit-scrollbar-track {
-   background-color: rgba(50, 50, 50, 0.4);
+   background-color: rgb(194 143 0);
 }
 
 a, a:visited {

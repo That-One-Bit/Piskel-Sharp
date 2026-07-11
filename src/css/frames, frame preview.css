@@ -53,6 +53,13 @@
   padding-right: 9px;
 }
 
+.add-frame-button {
+  text-align: center;
+  margin: -4px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .add-frame-action {
   display: flex;
   align-items: center;

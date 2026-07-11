@@ -5,8 +5,8 @@
 /* Widget's main container */
 .sp-container {
   border-radius: 4px;
-  background-color: #2B2B2B;
-  border: solid 4px #888;
+  background-color: #121212;
+  border: solid 3.5px #ffd700;
   padding: 5px 5px 0 5px;
   box-shadow : 0 0 5px 0 black;
 }
@@ -31,11 +31,11 @@
   border-width: 0;
   box-sizing: border-box;
   -moz-box-sizing:border-box;
-  background-color: #444;
+  background-color: #544700;
 }
 
 .sp-replacer:hover {
-  background-color: #888;
+  background-color: #7f6b00ad;
 }
 
 /* Hide the triangle */
@@ -59,7 +59,7 @@
   margin : 0 5px 5px 0;
   width: 24px;
   height: 24px;
-  border-color: #444;
+  border-color: #544700;
 
 }
 
@@ -100,8 +100,8 @@
 }
 
 .sp-palette .sp-thumb-el.sp-thumb-active {
-  border-color: var(--highlight-color);
-  box-shadow: 0 0 0px 1px var(--highlight-color);
+  border-color: gold;
+  box-shadow: 0 0 0px 1px gold;
 }
 
 .sp-input {

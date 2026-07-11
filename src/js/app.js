@@ -121,7 +121,7 @@
       this.layersListController = new pskl.controller.LayersListController(this.piskelController);
       this.layersListController.init();
 
-      this.settingsController = new pskl.controller.settings.SettingsController(this.piskelController);
+      this.settingsController = new pskl.controller.settings.SettingsController(this.piskelController, i18n);
       this.settingsController.init();
 
       this.dialogsController = new pskl.controller.dialogs.DialogsController(this.piskelController);
@@ -298,6 +298,7 @@
 
       this.toolController = new pskl.controller.ToolController(i18n);
       this.toolController.init();
+      pskl.controller.settings.settingsController();
       this.initTooltips_();
     }
   };

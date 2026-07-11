@@ -3,6 +3,17 @@
   var templates = {};
 
   ns.Template = {
+    /**
+     * Takes in a templateId and values to replace the keys found in the template
+     * @param {string} templateId - ID used to retrieve the correct template from misc-templates.html
+     * @param {Object} templateValues - The values to fill in the template with.
+     */
+    fillInTemplate : function (templateId, templateValues) {
+      var tpl = ns.Template.get(templateId);
+      var templateWithValues = ns.Template.replace(tpl, templateValues);
+      return templateWithValues;
+    },
+
     get : function (templateId) {
       if (!templates[templateId]) {
         var template = document.getElementById(templateId);
