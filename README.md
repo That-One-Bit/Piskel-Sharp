@@ -98,6 +98,7 @@ Help is always welcome ! Especially with this project.
 
 ## License
 
+Copyright 2026 That-One-Bit
 Copyright 2023 Matt Sephton
 Copyright 2017 Julian Descottes
 
