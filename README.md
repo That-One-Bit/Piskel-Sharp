@@ -1,4 +1,4 @@
-Piskel for Playdate
+Piskel Sharp: Beta
 ===================
 
 Piskel is an easy-to-use sprite editor . It can be used to create game sprites, animations, pixel-art...
@@ -113,4 +113,6 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
+
+<sub>The Readme was last updated for version 0.2.0 on 7/12/2026</sub>
 
