@@ -75,7 +75,7 @@
 }
 
 .preview-toggle-onion-skin:hover {
-  color : white;
+  color : var(--sharp-dark-gold-a);
 }
 
 .preview-toggle-onion-skin-enabled,

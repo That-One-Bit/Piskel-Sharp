@@ -18,7 +18,7 @@
   height: 100%;
   box-sizing: border-box;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
-  background: #444;
+  background: #090909;
 }
 
 .import-step-content {
@@ -50,7 +50,7 @@
 }
 
 .import-image-loading::after {
-  content: 'loading image';
+  content: 'Loading Image...';
 
   position: absolute;
   width: 100%;
@@ -81,7 +81,7 @@
 .import-section-preview {
   position: absolute;
   display: inline-block;
-  border: 1px dashed #999;
+  border: 1px dashed var(--sharp-light-gold);
   border-radius: 3px;
   margin-left: 50%;
   top: 10px;
@@ -209,7 +209,7 @@
 
 .import-mode-section {
   display: flex;
-  border: 3px solid #666;
+  border: 3px solid var(-sharp-light-gold);
   border-radius: 3px;
   padding: 10px;
   margin-bottom: 10px;
