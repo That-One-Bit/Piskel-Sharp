@@ -5,6 +5,15 @@
   color: #ff9f00;
 }
 
+.save-desc {
+  field-sizing: content;
+  height: auto;
+  max-height: 13lh;
+  max-width: 235px;
+  min-width: 90px;
+  min-height: 2.5lh;
+}
+
 .save-status {
   margin-top: 10px;
   margin-bottom: -10px;
