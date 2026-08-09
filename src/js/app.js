@@ -298,7 +298,7 @@
 
       this.toolController = new pskl.controller.ToolController(i18n);
       this.toolController.init();
-      pskl.controller.settings.settingsController();
+      // this.settingsController.init();
       this.initTooltips_();
     }
   };

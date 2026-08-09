@@ -1,6 +1,7 @@
 .dev-button {
     background: rgb(75 55 31);
     color: ghostwhite;
+    border-color: #2b230e;
 }
 
 .dev-button:disabled {

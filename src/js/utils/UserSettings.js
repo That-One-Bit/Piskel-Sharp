@@ -20,6 +20,7 @@
     EXPORT_SCALE: 'EXPORT_SCALE',
     EXPORT_TAB: 'EXPORT_TAB',
     EXPORT_GIF_REPEAT: 'EXPORT_GIF_REPEAT',
+    EXPORT_SVG_LOOP: 'EXPORT_SVG_LOOP',
     PEN_SIZE : 'PEN_SIZE',
     RESIZE_SETTINGS: 'RESIZE_SETTINGS',
     COLOR_FORMAT: 'COLOR_FORMAT',
@@ -36,7 +37,7 @@
         width : Constants.DEFAULT.WIDTH,
         height : Constants.DEFAULT.HEIGHT
       },
-      'CANVAS_BACKGROUND' : 'lowcont-dark-canvas-background',
+      'CANVAS_BACKGROUND' : 'low-medium-dark-canvas-background',
       'SELECTED_PALETTE' : Constants.CURRENT_COLORS_PALETTE_ID,
       'SEAMLESS_OPACITY' : 0.30,
       'SEAMLESS_MODE' : false,
@@ -47,6 +48,7 @@
       'EXPORT_SCALE' : 1,
       'EXPORT_TAB' : 'gif',
       'EXPORT_GIF_REPEAT' : true,
+      'EXPORT_SVG_LOOP' : false,
       'PEN_SIZE' : 1,
       'RESIZE_SETTINGS': {
         maintainRatio : true,
