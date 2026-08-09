@@ -341,4 +341,17 @@
 
     return Constants.PREVIEW_FILM_SIZE / frameSize;
   };
+
+  ns.FramesListController.prototype.switchLocale_ = function (i18n) {
+    this.i18n = i18n;
+
+    if (typeof this.render === 'function') {
+      this.render(); 
+    } else {
+    // Fallback if render is named differently or deferred
+      this.container.querySelectorAll('.delete-frame-action').forEach(button => { 
+        button.setAttribute('title', this.i18n.deleteThisFrameFramesListTool()); 
+      });
+    }
+  };
 })();

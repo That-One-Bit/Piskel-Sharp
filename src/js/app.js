@@ -214,6 +214,17 @@
 
       this.initTooltips_();
 
+      $.subscribe(Events.EXTERNAL_PISKEL_READY, function() {
+        const externalPiskel = window._externalPiskel;
+        if (!externalPiskel) {
+          console.error('No external piskel found');
+          return;
+        }
+        pskl.utils.serialization.Deserializer.deserialize(externalPiskel, function (piskel) {
+          pskl.app.piskelController.setPiskel(piskel);
+        });
+      });
+
       var piskelData = this.getPiskelInitData_();
       if (piskelData && piskelData.piskel) {
         this.loadPiskel_(piskelData);
@@ -298,6 +309,7 @@
 
       this.toolController = new pskl.controller.ToolController(i18n);
       this.toolController.init();
+      this.framesListController.switchLocale_(i18n);
       // this.settingsController.init();
       this.initTooltips_();
     }

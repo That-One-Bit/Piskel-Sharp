@@ -5,7 +5,7 @@ const process = require('process');
 
 let findpath = undefined;
 
-module.exports = async function(config) {
+module.exports = async function (config) {
 
   await import('nw')
   .then((module) => {
@@ -17,7 +17,7 @@ module.exports = async function(config) {
     process.exit(1);
   });
 
-  var mapToSrcFolder = function (path) {return ['src', path].join('/');};
+  var mapToSrcFolder = function (path) { return ['src', path].join('/'); };
 
   var piskelScripts = require('./src/piskel-script-list.js').scripts.map(mapToSrcFolder);
   piskelScripts.push('test/js/testutils/**/*.js');
@@ -36,7 +36,7 @@ module.exports = async function(config) {
 
     // list of files / patterns to load in the browser
     files: piskelScripts.concat([
-      './node_modules/promise-polyfill/promise.js'
+      './node_modules/promise-polyfill/dist/polyfill.min.js'
     ]),
 
 
