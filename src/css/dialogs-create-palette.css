@@ -23,15 +23,12 @@
 
 .colors-container {
   position: absolute;
-
   left: 10px;
   right: 10px;
   top: 85px;
-
   height: 460px;
-
   border: 1px solid black;
-  background: #333;
+  background: #000000;
 }
 
 .color-picker-container {
@@ -40,7 +37,7 @@
   top:0;
   bottom:0;
   right:0;
-  background: #222;
+  background: #190000;
 }
 
 .create-palette-actions {
@@ -99,11 +96,11 @@
 
 
 .create-palette-color {
-  border:1px solid #2c2c2c;
+  border:1px solid #634500;
   transition : border-color 0.2s;
 }
 .create-palette-color:hover {
-  border:1px solid var(--highlight-color);
+  border:1px solid gold;
 }
 
 .colors-list-drop-proxy {
@@ -111,17 +108,17 @@
 }
 
 .create-palette-new-color {
-  border:2px dotted var(--highlight-color);
+  border:2px dotted gold;
 
   border-radius: 2px;
   line-height: 40px;
   text-align: center;
   font-size: 20px;
-  color: var(--highlight-color);
+  color: gold;
 }
 
 .create-palette-color.selected {
-  border:2px solid var(--highlight-color);
+  border:2px solid gold;
 }
 
 .create-palette-remove-color {

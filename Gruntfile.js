@@ -288,6 +288,7 @@ module.exports = function(grunt) {
      */
 
     nwjs: {
+      downloadUrl: "https://nwjs.io/versions.json",
       win_x64 : {
         options: {
           mode: "build",
@@ -297,7 +298,7 @@ module.exports = function(grunt) {
           cacheDir: './node_modules/nw',
           outDir: './dest/desktop/',
           managedManifest: './package.nw.json',
-          manifestUrl: 'https://nwjs.io/versions.json',
+          manifestUrl: 'https://nwjs.io/versions.json'
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
       },
@@ -323,7 +324,13 @@ module.exports = function(grunt) {
           outDir: './dest/desktop/',
           managedManifest: './package.nw.json',
           app: {
-            icon: './piskel.icns'
+            icon: './piskel.icns',
+            LSApplicationCategoryType: "public.app-category.graphics-design",
+            NSHumanReadableCopyright: "© 2026 That-One-Bit — Piskel-Sharp",
+            CFBundleIdentifier: "com.that-one-bit.piskelsharp",
+            CFBundleName: "Piskel Sharp: Beta",
+            CFBundleDisplayName: "Piskel Sharp: Beta",
+            CFBundleVersion: "2"
           }
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
@@ -338,7 +345,13 @@ module.exports = function(grunt) {
           outDir: './dest/desktop/',
           managedManifest: './package.nw.json',
           app: {
-            icon: './piskel.icns'
+            icon: './piskel.icns',
+            LSApplicationCategoryType: "public.app-category.graphics-design",
+            NSHumanReadableCopyright: "© 2026 That-One-Bit — Piskel-Sharp",
+            CFBundleIdentifier: "com.that-one-bit.piskelsharp",
+            CFBundleName: "Piskel Sharp: Beta",
+            CFBundleDisplayName: "Piskel Sharp: Beta",
+            CFBundleVersion: "2"
           }
         },
         src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]

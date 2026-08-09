@@ -18,6 +18,9 @@
     "piskel-root": "./misc/scripts/piskel-root",
     "piskel-cli": "./cli/index.js"
   },
+  "app": {
+  "LSApplicationCategoryType": "public.app-category.graphics-design"
+  },
   "main": "./dest/prod/index.html",
   "scripts": {
     "grunt": "grunt",
@@ -65,7 +68,7 @@
   },
   "window": {
     "title": "Piskel",
-    "icon": "dest/prod/logo.png",
+    "icon": "dest/prod/img/favicon.png",
     "toolbar": false,
     "width": 1200,
     "height": 960,
@@ -79,7 +82,7 @@
 
   },
   "volta": {
-    "node": "21.1.0"
+    "node": "26.5.0"
   },
   "ManifestComments": [
     "Pin karma-jasmine to v4.0.2 since some tests fail on v5.0.0"

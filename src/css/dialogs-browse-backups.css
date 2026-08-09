@@ -18,7 +18,7 @@
   width: 100%;
   height: 10px;
   flex-grow: 1;
-  background: #444;
+  background: #090909;
 
   padding: 20px;
   overflow: auto;
@@ -71,7 +71,7 @@
 
 .browse-backups .session-list-empty,
 .browse-backups .snapshot-list-empty {
-  color: #bbb;
+  color: #0d0a06;
 }
 
 .browse-backups .session-list-error,
@@ -101,7 +101,7 @@
   margin-bottom: 10px;
   padding: 0 20px;
 
-  border: 1px solid #666;
+  border: 1px solid #433100;
   box-sizing: border-box;
 }
 
@@ -130,7 +130,7 @@
 .browse-backups .session-details-info,
 .browse-backups .snapshot-details-info {
   font-size: 11px;
-  color: #bbb;
+  color: var(--sharp-orange);
   line-height: 1.5em;
 }
 
