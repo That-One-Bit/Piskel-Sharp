@@ -18,6 +18,8 @@
     this.widthInput = this.container.querySelector('[name="resize-width"]');
     this.heightInput = this.container.querySelector('[name="resize-height"]');
     this.resizeForm = this.container.querySelector('form');
+
+    // Make sure that the classes are correct in the template, as this has been an issue before
     this.resizeContentCheckbox = this.container.querySelector('.resize-content-checkbox');
     this.maintainRatioCheckbox = this.container.querySelector('.resize-ratio-checkbox');
 
@@ -143,7 +145,7 @@
     // Checkbox
     // ----------------------------
     templateData = {
-      cssClass: 'resize-content-checkbox',
+      cssClass: 'resize-ratio-checkbox',
       spanText: i18n.resizeSettingSectionMaintainAspectRatio()
     };
     templateId = 'ratio-canvas-template';
@@ -152,7 +154,7 @@
     // Ratio
     // ----------------------------
     templateData = {
-      cssClass: 'resize-ratio-checkbox',
+      cssClass: 'resize-content-checkbox',
       spanText: i18n.resizeSettingSectionResizeCanvasContent()
     };
     templateId = 'ratio-canvas-template';

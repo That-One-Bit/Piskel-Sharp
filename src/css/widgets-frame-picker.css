@@ -5,7 +5,7 @@
 .frame-picker-wrapper {
   width: 150px;
   height: 150px;
-  border: 3px solid #666;
+  border: 3px solid var(--sharp-orange);
   border-radius: 3px;
 }
 
@@ -40,7 +40,7 @@
 
 .frame-nav .button[disabled],
 .frame-nav .button[disabled]:hover {
-    background-color: #aaa;
+    background-color: #242424;
 }
 
 .frame-nav .button + .button {

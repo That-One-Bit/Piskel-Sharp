@@ -34,31 +34,31 @@
     "format": "grunt eslint --fix"
   },
   "devDependencies": {
-    "grunt-nw-builder": "4.6.1",
     "base-volta-off-of-nwjs": "1.0.5",
-    "date-fns": "3.6.0",
+    "date-fns": "4.4.0",
     "fs-extra": "11.2.0",
-    "grunt": "1.6.1",
+    "grunt": "1.6.3",
     "grunt-casperjs": "2.2.1",
-    "grunt-cli": "1.4.3",
+    "grunt-cli": "1.5.0",
     "grunt-contrib-clean": "2.0.1",
     "grunt-contrib-concat": "2.1.0",
-    "grunt-contrib-connect": "4.0.0",
+    "grunt-contrib-connect": "5.0.1",
     "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-uglify": "5.2.2",
     "grunt-contrib-watch": "1.1.0",
-    "grunt-eslint": "25.0.0",
+    "grunt-eslint": "26.0.0",
     "grunt-include-replace": "5.0.0",
     "grunt-karma": "4.0.2",
     "grunt-leading-indent": "0.2.0",
+    "grunt-nw-builder": "4.6.1",
     "grunt-replace": "2.0.2",
     "grunt-spritesmith": "6.10.0",
-    "jasmine-core": "5.1.2",
-    "karma": "6.4.3",
+    "jasmine-core": "6.3.0",
+    "karma": "6.4.4",
     "karma-chrome-launcher": "3.2.0",
     "karma-jasmine": "4.0.2",
     "load-grunt-tasks": "5.1.0",
-    "nw": "0.86.0-2",
+    "nw": "0.114.0",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "2.1.16",
     "promise-polyfill": "8.3.0"
@@ -73,16 +73,15 @@
     "left": 0
   },
   "icons": {
-      "256": "dest/prod/img/taskbar.png"
+    "256": "dest/prod/img/taskbar.png"
   },
   "dependencies": {
     "casperjs": "^1.1.4",
     "minimist": "1.2.8",
-    "messageformat": "^2.3.0"
-
+    "@messageformat/core": "^3.0.0"
   },
   "volta": {
-    "node": "26.5.0"
+    "node": "26.1.0"
   },
   "ManifestComments": [
     "Pin karma-jasmine to v4.0.2 since some tests fail on v5.0.0"
