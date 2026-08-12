@@ -34,6 +34,17 @@
     }
     this.addEventListener(colorFormatSelect, 'change', this.onColorFormatChange_);
 
+    // Language selection
+    var currentLocale = pskl.app.currentLocale || 'en_us';
+    var languageSelect = document.querySelector('.language-select');
+    if (languageSelect) {
+      var selectedLanguageOption = languageSelect.querySelector('option[value="' + currentLocale + '"]');
+      if (selectedLanguageOption) {
+        selectedLanguageOption.setAttribute('selected', 'selected');
+      }
+      this.addEventListener(languageSelect, 'change', this.onLanguageChange_);
+    }
+    
     // Layer preview opacity
     var layerOpacityInput = document.querySelector('.layer-opacity-input');
     layerOpacityInput.value = pskl.UserSettings.get(pskl.UserSettings.LAYER_OPACITY);
@@ -97,6 +108,13 @@
 
   ns.MiscPreferencesController.prototype.onIgnoreWarningsChange_ = function (evt) {
     pskl.UserSettings.set(pskl.UserSettings.IGNORE_ENABLED, evt.currentTarget.checked);
+  };
+
+  ns.MiscPreferencesController.prototype.onLanguageChange_ = function (evt) {
+    var selectedValue = evt.target.value;
+    if (selectedValue) {
+      pskl.app.switchLocale(selectedValue);
+    }
   };
 
 })();

@@ -96,10 +96,10 @@
    */
   ns.CExporter.prototype.rgbToCHex_ = function (r, g, b, a) {
     var hexStr = '0x';
-    hexStr += ('00' + a.toString(16)).substr(-2);
-    hexStr += ('00' + b.toString(16)).substr(-2);
-    hexStr += ('00' + g.toString(16)).substr(-2);
     hexStr += ('00' + r.toString(16)).substr(-2);
+    hexStr += ('00' + g.toString(16)).substr(-2);
+    hexStr += ('00' + b.toString(16)).substr(-2);
+    hexStr += ('00' + a.toString(16)).substr(-2);
     return hexStr;
   };
 })();

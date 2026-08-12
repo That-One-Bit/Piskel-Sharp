@@ -25,9 +25,7 @@ module.exports = function(grunt) {
 
   // get the list of scripts paths to include
   var scriptPaths = require('./src/piskel-script-list.js').scripts;
-  var piskelScripts = prefixPaths(scriptPaths, "src/").filter(function (path) {
-    return path.indexOf('devtools') === -1;
-  });
+  var piskelScripts = prefixPaths(scriptPaths, "src/");
 
   // get the list of styles paths to include
   var stylePaths = require('./src/piskel-style-list.js').styles;
@@ -101,8 +99,8 @@ module.exports = function(grunt) {
      */
 
     connect: {
-      prod: getConnectConfig('dest/prod', PORT.PROD, hostname, true),
-      test: getConnectConfig(['dest/dev', 'test'], PORT.TEST, hostname, false),
+      prod: getConnectConfig(['dest/prod', 'test'], PORT.PROD, hostname, true),
+      test: getConnectConfig(['dest/prod', 'tests/e2e/data'], PORT.PROD, hostname, true),
       dev: getConnectConfig(['dest/dev', 'test'], PORT.DEV, hostname, 'http://' + hostname + ':' + PORT.DEV + '/?debug&test=true', true)
     },
 
@@ -136,19 +134,6 @@ module.exports = function(grunt) {
         dest: 'src/img/icons.png',
         retinaDest: 'src/img/icons@2x.png',
         destCss: 'src/css/icons.css'
-      }
-    },
-
-    'build-i18n' : {
-      js: {
-        files: [
-          {
-            expand: true,
-            ext: '.js',
-            src: ['i18n/locales/*.json'],
-            dest: 'dest/tmp/'
-          }
-        ]
       }
     },
 
@@ -258,21 +243,7 @@ module.exports = function(grunt) {
      * TESTING
      */
 
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
-      }
-    },
-
     casperjs : {
-      drawing : {
-        files : {
-          src: ['test/casperjs/DrawingTest.js']
-        },
-        options : {
-          casperjsOptions: casperjsOptions
-        }
-      },
       integration : {
         files : {
           src: integrationTests
@@ -362,26 +333,21 @@ module.exports = function(grunt) {
   // TEST TASKS
   // Run linting
   grunt.registerTask('lint', ['eslint', 'leadingIndent:css']);
-  // Run unit-tests
-  grunt.registerTask('unit-test', ['karma']);
-  // Run integration tests
   grunt.registerTask('integration-test', ['build-dev', 'connect:test', 'casperjs:integration']);
-  // Run drawing tests
-  grunt.registerTask('casper-drawing-test', ['build-dev', 'connect:test', 'casperjs:drawing']);
   // Run drawing tests and integration tests
   grunt.registerTask('casper-integration-test', ['build-dev', 'connect:test', 'casperjs:integration']);
 
   // Run the tests, even if the linting fails
-  grunt.registerTask('test-nolint', ['unit-test', 'build-dev', 'connect:test', 'casperjs:drawing', 'casperjs:integration']);
+  grunt.registerTask('test-nolint', ['build-dev', 'connect:test', 'casperjs:integration']);
 
   // Used by optional precommit hook
   grunt.registerTask('precommit', ['test']);
 
   // BUILD TASKS
   grunt.registerTask('build-index.html', ['includereplace']);
-  grunt.registerTask('merge-statics', ['build-i18n:js', 'concat:js', 'concat:css', 'uglify']);
+  grunt.registerTask('merge-statics', ['concat:js', 'concat:css', 'uglify']);
   grunt.registerTask('build',  ['clean:prod', 'sprite', 'merge-statics', 'build-index.html', 'replace:mainPartial', 'replace:css', 'copy:prod']);
-  grunt.registerTask('build-dev',  ['clean:dev', 'sprite', 'build-i18n:js', 'build-index.html', 'copy:dev']);
+  grunt.registerTask('build-dev',  ['clean:dev', 'sprite', 'build-index.html', 'copy:dev']);
   grunt.registerTask('desktop', ['clean:desktop', 'default', 'nwjs:macos', 'nwjs:windows', 'nwjs:linux']);
   grunt.registerTask('desktop-win-x64', ['clean:desktop', 'default', 'nwjs:win_x64']);
   grunt.registerTask('desktop-linux-x64', ['clean:desktop', 'default', 'nwjs:linux_x64']);
@@ -391,6 +357,7 @@ module.exports = function(grunt) {
   // SERVER TASKS
   // Start webserver and watch for changes
   grunt.registerTask('serve', ['build', 'connect:prod', 'watch:prod']);
+  grunt.registerTask('serve-test', ['build', 'connect:test', 'watch:prod']);
   // Start webserver on src folder, in debug mode
   grunt.registerTask('play', ['build-dev', 'connect:dev', 'watch:dev']);
 

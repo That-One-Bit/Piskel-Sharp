@@ -23,17 +23,23 @@
     "grunt": "grunt",
     "postinstall": "base-volta-off-of-nwjs",
     "test": "grunt test",
-    "dev": "grunt play",
-    "start": "grunt build && nw",
+    "devhost": "grunt play",
+    "build:web": "grunt build && nw",
     "preversion": "grunt test build",
     "postversion": "git push && git push --tags && npm publish",
     "release": "grunt && node ./bin/copy-to-piskel-website",
     "build:win": "grunt desktop-win-x64",
     "build:mac": "grunt desktop-osx-x64",
     "build:mac-arm": "grunt desktop-osx-arm",
-    "format": "grunt eslint --fix"
+    "build:linux": "grunt desktop-linux-x64",
+    "format": "grunt eslint --fix",
+    "e2e": "npx playwright test",
+    "e2e:interactive": "npx playwright test --ui",
+    "unit-tests": "karma start",
+    "unit-tests:watch": "karma start --auto-watch --no-single-run"
   },
   "devDependencies": {
+    "@playwright/test": "^1.52.0",
     "base-volta-off-of-nwjs": "1.0.5",
     "date-fns": "4.4.0",
     "fs-extra": "11.2.0",
@@ -61,7 +67,9 @@
     "nw": "0.114.0",
     "phantomjs-polyfill-object-assign": "0.0.2",
     "phantomjs-prebuilt": "2.1.16",
-    "promise-polyfill": "8.3.0"
+    "promise-polyfill": "8.3.0",
+    "puppeteer": "^24.10.0",
+    "typescript": "^5.8.3"
   },
   "window": {
     "title": "Piskel",

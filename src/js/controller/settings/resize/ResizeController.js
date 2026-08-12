@@ -235,4 +235,25 @@
     html += resizeCanvasFormDefaultHtml;
     $('#default-size-form').html(html);
   };
+
+  ns.ResizeController.prototype.switchLocale_ = function (i18n) {
+    this.i18n = i18n;
+    this.this = ns.ResizeController;
+
+    var selection = document.querySelector(
+      '.icon-settings-resize-white'
+    );
+
+    if (selection) {
+      selection.setAttribute(
+        'data-original-title',
+        '<span class="highlight">' +
+          this.i18n.resizeSetting() +
+          '</span><br>' +
+          this.i18n.resizeSettingDescriptorResizeTheDrawingArea()
+      );
+    }
+
+    this.this(i18n);
+  };
 })();
