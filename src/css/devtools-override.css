@@ -9,7 +9,7 @@
 }
 
 .dev-container {
-    position: relative;
+    position: fixed;
     z-index: 10000;
     margin: 5px;
     padding: 10px;
