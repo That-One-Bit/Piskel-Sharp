@@ -352,6 +352,9 @@
       this.container.querySelectorAll('.delete-frame-action').forEach(button => { 
         button.setAttribute('title', this.i18n.deleteThisFrameFramesListTool()); 
       });
+      this.container.querySelectorAll('.duplicate-frame-action').forEach(button => { 
+        button.setAttribute('title', this.i18n.duplicateThisFrameFramesListTool()); 
+      });
     }
   };
 })();
