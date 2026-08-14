@@ -1,6 +1,6 @@
 {
   "name": "piskel-sharp",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "A fork of the popular pixel art editor, Piskel, that adds new features and localization.",
   "author": "Matt Sephton, That-One-Bit",

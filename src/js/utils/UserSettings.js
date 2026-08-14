@@ -1,6 +1,9 @@
 (function () {
   var ns = $.namespace('pskl');
 
+  var rawLocale = navigator.language || navigator.userLanguage
+  var formatLocale = rawLocale ? rawLocale.replace('-', '_').toLowerCase() : 'en_us';
+
   ns.UserSettings = {
     GRID_COLOR : 'GRID_COLOR',
     GRID_ENABLED : 'GRID_ENABLED',
@@ -26,6 +29,7 @@
     COLOR_FORMAT: 'COLOR_FORMAT',
     TRANSFORM_SHOW_MORE: 'TRANSFORM_SHOW_MORE',
     PREFERENCES_TAB: 'PREFERENCES_TAB',
+    USER_LOCALE: 'USER_LOCALE',
     KEY_TO_DEFAULT_VALUE_MAP_ : {
       'GRID_COLOR' : Constants.TRANSPARENT_COLOR,
       'GRID_ENABLED' : false,
@@ -58,6 +62,7 @@
       COLOR_FORMAT: 'hex',
       TRANSFORM_SHOW_MORE: false,
       PREFERENCES_TAB: 'misc',
+      'USER_LOCALE': formatLocale
     },
 
     /**

@@ -4,13 +4,13 @@
 
 .textfield {
   box-sizing:border-box;
-
   background : #000000;
-  border : 1px solid #570000;
-  border-radius : 2px;
-  padding : 3px 10px;
+  border: 2px solid #570000;
+  border-radius: 6px;
+  padding: 12px 10px;
   color : #ffffff;
   height: 23px;
+  margin-left: 4px;
 }
 
 .textfield[readonly="true"] {

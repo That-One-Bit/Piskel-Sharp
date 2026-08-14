@@ -129,7 +129,7 @@
   ns.SettingsController.prototype.switchLocale_ = function (i18n) {
     this.i18n = i18n;
 
-    // Only in resize Controller as of Cheat (0.2.1)
+    // Only in resize Controller as of Unique (0.2.1)
     this.currentController.switchLocale_(i18n);
   };
 })();

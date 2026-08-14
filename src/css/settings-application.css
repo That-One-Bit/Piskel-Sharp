@@ -54,9 +54,9 @@
   display: inline-block;
   line-height: 30px;
   width: 40px;
-  border: 1px solid var(--sharp-light-red);
+  border: 2px solid var(--sharp-light-red);
   box-sizing: border-box;
-  border-radius: 3px;
+  border-radius: 5px;
   text-align: center;
 }
 

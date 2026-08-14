@@ -100,3 +100,90 @@
   vertical-align: middle;
   accent-color: #5c0000;
 }
+
+/* Container positioning */
+.selector-item {
+  position: relative;
+  display: inline-block;
+  font-family: sans-serif;
+}
+
+/* Hide the checkbox completely */
+.dropdown-toggle {
+  display: none;
+}
+
+/* Style the main box (Matches your select layout) */
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 120px;
+  background-color: #000;
+  color: #ffffff;
+  padding: 4px 8px;
+  border: 2px solid var(--sharp-light-red);
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Little dropdown arrow */
+.arrow {
+  font-size: 10px;
+  transition: transform 0.2s ease;
+}
+
+/* Style the dropdown option list container */
+.dropdown-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: 4px 0 0 0;
+  padding: 0;
+  list-style: none;
+  background-color: #000;
+  border: 2px solid var(--sharp-dark-red);
+  border-radius: 4px;
+  box-sizing: border-box;
+  z-index: 10;
+  
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Style individual options as buttons instead of links */
+.dropdown-options li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 6px 8px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+/* Hover state for buttons */
+.dropdown-options li button:hover {
+  background-color: #241212;
+}
+
+
+/* MAGIC: When checkbox is checked, show the menu */
+.dropdown-toggle:checked ~ .dropdown-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Optional: Rotate arrow when open */
+.dropdown-toggle:checked ~ .dropdown-header .arrow {
+  transform: rotate(180deg);
+}

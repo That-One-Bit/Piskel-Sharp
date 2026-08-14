@@ -14,9 +14,9 @@
       /**
         * Piskel Sharp supports Internalization(i18n) by providing translations of its UI elements.
         *
-        * The available strings are in `i18n/locales` directory and each locale has its own file.
-        * For example: `en_us.json` where `en` is English and `us` is United States
-        * Note that en_us.json should contain all available strings because this is the locale other
+        * The available strings are in `src/js/locales.js` directory and each locale has its own file.
+        * For example: `en_us` where `en` is English and `us` is United States
+        * Note that `en_us` should contain all available strings because this is the locale other
         * languages will fallback to if a translation from English doesn't exist.
         *
         * The strings that we will be used depend on the window.piskel_locale. window.piskel_locale is the 4 letter locale
@@ -34,12 +34,18 @@
         * i18n object so that it can be used in all the Tools like Stroke and Pen Tool
         *
         * To see how each key becomes a function look at the tasks/build-i18n.js file where we use the MessageFormat API
+        * 
+        * Piskel Sharp has added a new switchLocale() function that
+        * can be called from either the console or the dropdown in the
+        * settings drawer. You can find switchLocale()'s logic at the
+        * bottom of this file.
       */
 
       if (window.piskel_locale === undefined) {
-        window.piskel_locale = 'en_us';
+        window.piskel_locale = pskl.UserSettings.get(pskl.UserSettings.USER_LOCALE);
       }
       var i18n = window.piskel_locales[window.piskel_locale];
+      console.log("UserSettings Locale: ", pskl.UserSettings.get(pskl.UserSettings.USER_LOCALE));
 
       /**
        * When started from APP Engine, appEngineToken_ (Boolean) should be set on window.pskl
@@ -116,13 +122,13 @@
       this.framesListController = new pskl.controller.FramesListController(
         this.piskelController,
         document.querySelector('#preview-list-wrapper'), i18n);
-      this.framesListController.init();
+      this.framesListController.init(i18n);
 
       this.layersListController = new pskl.controller.LayersListController(this.piskelController);
       this.layersListController.init();
 
       this.settingsController = new pskl.controller.settings.SettingsController(this.piskelController, i18n);
-      this.settingsController.init();
+      this.settingsController.init(i18n);
 
       this.dialogsController = new pskl.controller.dialogs.DialogsController(this.piskelController);
       this.dialogsController.init();
@@ -308,10 +314,16 @@
       window.i18n = window.piskel_locales[localeCode];
 
       this.toolController = new pskl.controller.ToolController(i18n);
+
       this.toolController.init();
+      // this.transformationsController.init();
       this.framesListController.switchLocale_(i18n);
-      // this.settingsController.init();
+      
+      // Don't forget to add an sL_ function to each drawer controller
+      this.settingsController.switchLocale_(i18n);
       this.initTooltips_();
+
+      // Add USER_LOCALE saving to Misc. Pref C before release
     }
   };
 })();

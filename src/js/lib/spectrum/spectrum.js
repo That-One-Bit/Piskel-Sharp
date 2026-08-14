@@ -1780,7 +1780,15 @@
         white: "fff",
         whitesmoke: "f5f5f5",
         yellow: "ff0",
-        yellowgreen: "9acd32"
+        yellowgreen: "9acd32",
+        'sharp-light-gold': "ffd700",
+        'sharp-gold': "b49700",
+        'sharp-dark-gold-a': "c28f00",
+        'sharp-dark-gold-b': "764c00",
+        'sharp-light-red': "af0000",
+        'sharp-dark-red': "5c0000",
+        'sharp-black': "0d0a06",
+        'sharp-orange': "e89100",
     };
 
     // Make it easy to access colors via `hexNames[hex]`

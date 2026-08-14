@@ -1,82 +1,41 @@
-const fs = require('node:fs');
+const fs = require('node:fs/promises');
 const path = require('node:path');
+const pjson = require('../package.json');
 
+// 1. Define your folder paths clearly
 const PISKEL_PATH = path.resolve(__dirname, '..');
-const PISKELAPP_PATH = path.resolve(__dirname, '../../piskel-website');
+// Update this path to point exactly to your Multi Bit Catalogue repository root folder
+const MULTI_BIT_PATH = path.resolve(__dirname, '../../Multi-Bit-Catalogue'); 
 
-var pjson = require('../package.json');
+async function publishToMultiBit() {
+  try {
+    console.log(`Starting deployment for Piskel Sharp v${pjson.version}...`);
 
-// Callbacks sorted by call sequence.
-function onCopy(err) {
-  if (err) {
-    console.error('Failed to copy static files...');
-    return console.error(err);
+    // 2. Define source and destination paths
+    const srcProd = path.resolve(PISKEL_PATH, 'dest/prod');
+    const destWebBuild = path.resolve(MULTI_BIT_PATH, 'tools/piskelSharp');
+
+    // 3. Clear out the old build directory first to ensure a clean slate
+    console.log('Cleaning up previous build files...');
+    await fs.rm(destWebBuild, { recursive: true, force: true });
+    console.log('Done');
+
+    // 4. Copy the freshly compiled production assets into tools/piskel-sharp/
+    console.log('Copying prod assets to tools/piskelSharp/...');
+    await fs.cp(srcProd, destWebBuild, { recursive: true });
+    console.log('Done');
+
+    // 5. Optional: Maintain a version file inside the folder for reference
+    const versionFilePath = path.resolve(destWebBuild, 'VERSION');
+    await fs.writeFile(versionFilePath, pjson.version);
+    console.log(`Version file created tracking version: ${pjson.version}`);
+
+    console.log('Finished. Push latest commit via GitHub Desktop');
+
+  } catch (error) {
+    console.error('Prod Action failed with error:', error);
   }
-
-  console.log('Copied static files to piskel-website...');
-  let previousPartialPath = path.resolve(PISKELAPP_PATH, 'templates/editor/main-partial.html');
-  fs.access(previousPartialPath, fs.constants.F_OK, function (err) {
-    if (err) {
-      // File does not exit, call next step directly.
-      console.error('Previous main partial doesn\'t exist yet.');
-      onDeletePreviousPartial();
-    } else {
-      // File exists, try to delete it before moving on.
-      fs.unlink(previousPartialPath, onDeletePreviousPartial);
-    }
-  })
 }
 
-function onDeletePreviousPartial(err) {
-  if (err) {
-    console.error('Failed to delete previous main partial...');
-    return console.error(err);
-  }
-
-  console.log('Previous main partial deleted...');
-  fs.cp(
-    path.resolve(PISKELAPP_PATH, "static/editor/piskelapp-partials/main-partial.html"),
-    path.resolve(PISKELAPP_PATH, "templates/editor/main-partial.html"),
-    onCopyNewPartial
-  );
-}
-
-function onCopyNewPartial(err) {
-  if (err) {
-    console.error('Failed to delete previous main partial...');
-    return console.error(err);
-  }
-
-  console.log('Main partial copied...');
-  fs.rm(
-    path.resolve(PISKELAPP_PATH, "static/editor/piskelapp-partials/"),
-    onDeleteTempPartial
-  );
-}
-
-function onDeleteTempPartial(err) {
-  if (err) {
-    console.error('Failed to delete temporary main partial...');
-    return console.error(err);
-  }
-
-  console.log('Temporary main partial deleted...');
-
-  fs.writeFile(path.resolve(PISKELAPP_PATH, "static/editor/VERSION"), pjson.version, onVersionFileCreated);
-}
-
-function onVersionFileCreated(err) {
-  if (err) {
-    console.error('Failed to create temporary main partial...');
-    return console.error(err);
-  }
-
-  console.log('Version file created...');
-  console.log('Finished!');
-}
-
-fs.cp(
-  path.resolve(PISKEL_PATH, "dest/prod"),
-  path.resolve(PISKELAPP_PATH, "static/editor"),
-  onCopy
-);
+// Execute the deployment script
+publishToMultiBit();

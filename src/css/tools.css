@@ -40,7 +40,7 @@
 }
 
 .tool-pen .drawing-canvas-container:hover {
-  cursor: url(../img/cursors/pen.png) 1 14, pointer;
+  cursor: url(../img/cursors/pencil.png) 1 14, pointer;
 }
 
 .tool-dithering .drawing-canvas-container:hover {
@@ -82,6 +82,14 @@
 
 .tool-colorpicker .drawing-canvas-container:hover {
   cursor: url(../img/cursors/dropper.png) 2 15, pointer;
+}
+
+.tool-shift-index .drawing-canvas-container:hover {
+  cursor: url(../img/cursors/color-shift.png) 2 15, pointer;
+}
+
+.tool-toggle-pen .drawing-canvas-container:hover {
+  cursor: url(../img/cursors/pen.png) 2 15, pointer;
 }
 
 .swap-colors-button {

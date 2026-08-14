@@ -37,12 +37,34 @@
       <input type="text" class="textfield  textfield-small  max-fps-input" autocomplete="off" name="max-fps"/>
     </div>
 
-    <div class="settings-item">
-      <label for="color-format">Color format</label>
-      <select id="color-format" class="color-format-select">
-        <option value="hex">Hex</option>
-        <option value="rgb">RGB</option>
-      </select>
+    <div class="settings-item selector-item">
+      <label style="display: block; text-align: center;">
+        Color Format 
+        <input type="checkbox" id="color-format-toggle" class="dropdown-toggle"> 
+        <label for="color-format-toggle" class="dropdown-header"> 
+          <span id="current-color-format-display" class="current-value">Hex</span> 
+          <span class="arrow">▼</span> 
+        </label> 
+        <ul class="dropdown-options color-format-options"> 
+          <li><button type="button" data-value="hex">Hex</button></li> 
+          <li><button type="button" data-value="rgb">RGB</button></li> 
+        </ul> 
+      </label>
+    </div>
+
+    <div class="settings-item selector-item">
+      <label style="display: block; text-align: center;">
+        Language
+        <input type="checkbox" id="locale-toggle" class="dropdown-toggle"> 
+        <label for="locale-toggle" class="dropdown-header"> 
+          <span id="current-locale-display" class="current-value">en_US</span> 
+          <span class="arrow">▼</span> 
+        </label> 
+        <ul class="dropdown-options language-options"> 
+          <li><button type="button" data-value="en_us">en_US</button></li> 
+          <li><button type="button" data-value="es_mx">es_MX</button></li> 
+        </ul> 
+      </label>
     </div>
 
     <div class="settings-item">

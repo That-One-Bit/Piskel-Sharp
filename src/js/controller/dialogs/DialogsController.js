@@ -29,6 +29,10 @@
     'browse-backups' : {
       template : 'templates/dialogs/browse-backups.html',
       controller : ns.backups.BrowseBackups
+    },
+    'piskel-sharp-changelog' : {
+      template : 'templates/dialogs/piskel-sharp-changelog.html',
+      controller : ns.backups.BrowseBackups
     }
   };
 
