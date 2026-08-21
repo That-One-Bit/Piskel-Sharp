@@ -66,7 +66,10 @@ module.exports = function(grunt) {
     clean: {
       all: ['dest', 'src/img/icons.png', 'src/css/icons.css'],
       prod: ['dest/prod', 'dest/tmp'],
-      desktop: ['dest/desktop', 'dest/tmp'],
+      windows: ['dest/windows64', 'dest/tmp'],
+      linux: ['dest/linux64', 'dest/tmp'],
+      macOS_intel: ['dest/macOS_INTEL', 'dest/tmp'],
+      macOS_arm: ['dest/macOS_ARM', 'dest/tmp'],
       dev: ['dest/dev', 'dest/tmp']
     },
 
@@ -267,11 +270,11 @@ module.exports = function(grunt) {
           platform: "win",
           arch: "x64",
           cacheDir: './node_modules/nw',
-          outDir: './dest/desktop/',
+          outDir: './dest/windows64/',
           managedManifest: './package.nw.json',
           manifestUrl: 'https://nwjs.io/versions.json'
         },
-        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/windows64/"]
       },
       linux_x64 : {
         options: {
@@ -280,10 +283,10 @@ module.exports = function(grunt) {
           platform: "linux",
           arch: "x64",
           cacheDir: './node_modules/nw',
-          outDir: './dest/desktop/',
+          outDir: './dest/linux64/',
           managedManifest: './package.nw.json',
         },
-        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/linux64/"]
       },
       osx_x64 : {
         options: {
@@ -292,7 +295,7 @@ module.exports = function(grunt) {
           platform: "osx",
           arch: "x64",
           cacheDir: './node_modules/nw',
-          outDir: './dest/desktop/',
+          outDir: './dest/macOS_INTEL/',
           managedManifest: './package.nw.json',
           app: {
             icon: './piskel.icns',
@@ -304,7 +307,7 @@ module.exports = function(grunt) {
             CFBundleVersion: "2"
           }
         },
-        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/macOS_INTEL/"]
       },
       osx_arm : {
         options: {
@@ -313,7 +316,7 @@ module.exports = function(grunt) {
           platform: "osx",
           arch: "arm64",
           cacheDir: './node_modules/nw',
-          outDir: './dest/desktop/',
+          outDir: './dest/macOS_ARM/',
           managedManifest: './package.nw.json',
           app: {
             icon: './piskel.icns',
@@ -325,7 +328,7 @@ module.exports = function(grunt) {
             CFBundleVersion: "2"
           }
         },
-        src: ['./dest/prod/**/*', "./package.json", "!./dest/desktop/"]
+        src: ['./dest/prod/**/*', "./package.json", "!./dest/macOS_ARM/"]
       }
     }
   });
@@ -349,10 +352,10 @@ module.exports = function(grunt) {
   grunt.registerTask('build',  ['clean:prod', 'sprite', 'merge-statics', 'build-index.html', 'replace:mainPartial', 'replace:css', 'copy:prod']);
   grunt.registerTask('build-dev',  ['clean:dev', 'sprite', 'build-index.html', 'copy:dev']);
   grunt.registerTask('desktop', ['clean:desktop', 'default', 'nwjs:macos', 'nwjs:windows', 'nwjs:linux']);
-  grunt.registerTask('desktop-win-x64', ['clean:desktop', 'default', 'nwjs:win_x64']);
-  grunt.registerTask('desktop-linux-x64', ['clean:desktop', 'default', 'nwjs:linux_x64']);
-  grunt.registerTask('desktop-osx-x64', ['clean:desktop', 'default', 'nwjs:osx_x64']);
-  grunt.registerTask('desktop-osx-arm', ['clean:desktop', 'default', 'nwjs:osx_arm']);
+  grunt.registerTask('desktop-win-x64', ['clean:windows', 'default', 'nwjs:win_x64']);
+  grunt.registerTask('desktop-linux-x64', ['clean:linux', 'default', 'nwjs:linux_x64']);
+  grunt.registerTask('desktop-osx-x64', ['clean:macOS_intel', 'default', 'nwjs:osx_x64']);
+  grunt.registerTask('desktop-osx-arm', ['clean:macOS_arm', 'default', 'nwjs:osx_arm']);
 
   // SERVER TASKS
   // Start webserver and watch for changes
