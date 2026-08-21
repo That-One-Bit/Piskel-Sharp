@@ -1,7 +1,7 @@
 // Contains Grunt tasks related to building translatable assets.
 module.exports = function(grunt) {
   var path = require('path');
-  var MessageFormat = require('messageformat');
+  var MessageFormat = require('@messageformat/core');
 
   grunt.registerMultiTask('build-i18n', 'Compile i18n strings!', function() {
     this.files.forEach(function(file) {

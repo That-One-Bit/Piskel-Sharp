@@ -56,5 +56,5 @@ input[type="range"]:hover {
 }
 
 a, a:visited {
-  color: var(--highlight-color);
+  color: var(--sharp-black);
 }
